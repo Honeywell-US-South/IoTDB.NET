@@ -44,8 +44,8 @@ namespace IoTDBdotNET
             if (!Directory.Exists(_tsPath)) throw new DirectoryNotFoundException($"Unable to create timeseries directory. {_tsPath}");
             if (!Directory.Exists(_tbPath)) throw new DirectoryNotFoundException($"Unable to create tables directory. {_tbPath}");
             if (!Directory.Exists(_flPath)) throw new DirectoryNotFoundException($"Unable to create files directory. {_flPath}");
-            TimeSeries = new TimeSeriesDatabase(_tsPath, _password);
-            TimeSeries.ExceptionOccurred += OnExceptionOccurred;
+            //TimeSeries = new TimeSeriesDatabase(_tsPath, _password);
+            //TimeSeries.ExceptionOccurred += OnExceptionOccurred;
 
         }
 
