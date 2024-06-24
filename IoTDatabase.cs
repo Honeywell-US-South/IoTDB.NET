@@ -13,19 +13,7 @@ namespace IoTDBdotNET
         private string _tsPath;
         private string _tbPath;
         private string _flPath;
-        private ITimeSeriesDatabase? _tsDb;
-        public ITimeSeriesDatabase TimeSeries
-        {
-            get
-            {
-                if (_tsDb == null)
-                {
-                    _tsDb = new TimeSeriesDatabase(_tsPath, _password);
-                    _tsDb.ExceptionOccurred += OnExceptionOccurred;
-                }
-                return _tsDb;
-            }
-        }
+        public ITimeSeriesDatabase TimeSeries { get; }
 
         private ConcurrentDictionary<string, dynamic> _tables = new();
         internal ConcurrentDictionary<string, TableInfo> _tableInfos = new();
@@ -44,8 +32,8 @@ namespace IoTDBdotNET
             if (!Directory.Exists(_tsPath)) throw new DirectoryNotFoundException($"Unable to create timeseries directory. {_tsPath}");
             if (!Directory.Exists(_tbPath)) throw new DirectoryNotFoundException($"Unable to create tables directory. {_tbPath}");
             if (!Directory.Exists(_flPath)) throw new DirectoryNotFoundException($"Unable to create files directory. {_flPath}");
-           
-            
+            TimeSeries = new TimeSeriesDatabase(_tsPath, _password);
+            TimeSeries.ExceptionOccurred += OnExceptionOccurred;
 
         }
 
