@@ -13,7 +13,19 @@ namespace IoTDBdotNET
         private string _tsPath;
         private string _tbPath;
         private string _flPath;
-        public ITimeSeriesDatabase TimeSeries { get; }
+        private ITimeSeriesDatabase? _tsDb;
+        public ITimeSeriesDatabase TimeSeries
+        {
+            get
+            {
+                if (_tsDb == null)
+                {
+                    _tsDb = new TimeSeriesDatabase(_tsPath, _password);
+                    _tsDb.ExceptionOccurred += OnExceptionOccurred;
+                }
+                return _tsDb;
+            }
+        }
 
         private ConcurrentDictionary<string, dynamic> _tables = new();
         internal ConcurrentDictionary<string, TableInfo> _tableInfos = new();
