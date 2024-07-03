@@ -1,5 +1,6 @@
 ﻿using IoTDBdotNET.FileDB;
 using IoTDBdotNET.TableDB;
+using IoTDBdotNET.TimeSeriesDB;
 using System.Collections.Concurrent;
 
 namespace IoTDBdotNET
@@ -13,7 +14,7 @@ namespace IoTDBdotNET
         private string _tsPath;
         private string _tbPath;
         private string _flPath;
-        public ITimeSeriesDatabase TimeSeries { get; }
+        
 
         private ConcurrentDictionary<string, dynamic> _tables = new();
         internal ConcurrentDictionary<string, TableInfo> _tableInfos = new();
@@ -32,8 +33,7 @@ namespace IoTDBdotNET
             if (!Directory.Exists(_tsPath)) throw new DirectoryNotFoundException($"Unable to create timeseries directory. {_tsPath}");
             if (!Directory.Exists(_tbPath)) throw new DirectoryNotFoundException($"Unable to create tables directory. {_tbPath}");
             if (!Directory.Exists(_flPath)) throw new DirectoryNotFoundException($"Unable to create files directory. {_flPath}");
-            TimeSeries = new TimeSeriesDatabase(_tsPath, _password);
-            TimeSeries.ExceptionOccurred += OnExceptionOccurred;
+           
 
         }
 

@@ -53,7 +53,7 @@ namespace IoTDBdotNET
                     var idName = $"{name}Id";
                     if (!TableInfo.ForeignKeys.Any(x => x.Name == idName))
                     {
-                        throw new InvalidFieldTypeException($"Table doesn't have Foreign Key for referenced Foreign Table name {ft.Name}.");
+                        throw new InvalidConstraintException($"Table doesn't have Foreign Key for referenced Foreign Table name {ft.Name}.");
                     }
                 }
             }
@@ -314,7 +314,7 @@ namespace IoTDBdotNET
                                 if (tfa.Constraint == TableConstraint.Cascading)
                                 {
                                     var good = table.Delete(childId);
-                                    if (!good) throw new InternalErrorException($"Failed cascade delete record in child table {table.Name}.");
+                                    if (!good) throw new InvalidConstraintException($"Failed cascade delete record in child table {table.Name}.");
                                 } else if (tfa.Constraint == TableConstraint.SetNull)
                                 {
                                     fk.PropertyInfo.SetValue(item, null, null);
@@ -379,7 +379,7 @@ namespace IoTDBdotNET
                                 if (key2.Constraint == TableConstraint.Cascading)
                                 {
                                     var deletedItemCount = table.DeleteAll();
-                                    if (deletedItemCount < 1) throw new InternalErrorException($"Failed cascade delete record in child table {table.Name}.");
+                                    if (deletedItemCount < 1) throw new InvalidConstraintException($"Failed cascade delete record in child table {table.Name}.");
                                 }
                                 else if (key2.Constraint == TableConstraint.SetNull)
                                 {

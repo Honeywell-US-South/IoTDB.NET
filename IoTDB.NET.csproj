@@ -15,4 +15,8 @@
     <None Remove="SystemTables\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
