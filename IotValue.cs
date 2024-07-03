@@ -10,6 +10,7 @@ namespace IoTDBdotNET
     {
 
         public string Name { get; set; }
+        public string Description { get; set; } = string.Empty;
         public string?[] Values { get; set; } = new string?[16];
         public DateTime?[] Timestamps { get; set; } = new DateTime?[16];
         public bool AllowManualOperator { get; set; } = true;
@@ -23,10 +24,11 @@ namespace IoTDBdotNET
             InitValues();
         }
 
-        public IotValue(string name, object? value, bool isPassword, bool allowManualOperator, bool timeSeries, bool blockChain)
+        public IotValue(string name, string description, object? value, bool isPassword, bool allowManualOperator, bool timeSeries, bool blockChain)
         {
             InitValues();
             Name = name;
+            Description = description;
             AllowManualOperator = allowManualOperator;
             TimeSeries = timeSeries;
             BlockChain = blockChain;
