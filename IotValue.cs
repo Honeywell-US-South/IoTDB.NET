@@ -15,7 +15,7 @@ namespace IoTDBdotNET
         public bool AllowManualOperator { get; set; } = true;
         public bool TimeSeries { get; set; } = false;
         public bool BlockChain { get; set; } = false;
-        public System.Type? DataType { get; set; } = null;
+        public System.Type? StrictDataType { get; set; } = null;
         public bool IsPassword { get; set; } = false;
 
         public IotValue()
@@ -661,10 +661,10 @@ namespace IoTDBdotNET
         private void ValidateType(object? value)
         {
             if (value == null) return;
-            if (DataType == null) return;
-            if (value.GetType() != DataType)
+            if (StrictDataType == null) return;
+            if (value.GetType() != StrictDataType)
             {
-                throw new ArgumentException($"Invalid data type. Expected {DataType}, but got {value.GetType()}.");
+                throw new ArgumentException($"Invalid data type. Expected strict data type of {StrictDataType}, but got {value.GetType()}.");
             }
         }
 
