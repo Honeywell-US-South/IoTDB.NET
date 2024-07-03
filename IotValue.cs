@@ -11,7 +11,7 @@ namespace IoTDBdotNET
 
         public string Name { get; set; }
         public string?[] Values { get; set; } = new string?[16];
-        
+        public DateTime?[] Timestamps { get; set; } = new DateTime?[16];
         public bool AllowManualOperator { get; set; } = true;
         public bool TimeSeries { get; set; } = false;
         public bool BlockChain { get; set; } = false;
@@ -60,11 +60,13 @@ namespace IoTDBdotNET
             if (AllowManualOperator && index == 7)
             {
                 Values[index] = null;
+                Timestamps[index] = null;
                 //HasValues[index] = false;
                 return false; //manual operator 
             }
 
             Values[index] = value;
+            Timestamps[index] = DateTime.UtcNow;
             //HasValues[index] = value != null;
 
             return true;
@@ -96,6 +98,18 @@ namespace IoTDBdotNET
                 return 0;
             }
             
+        }
+
+        public DateTime Timestamp
+        {
+            get
+            {
+                for (int i = 0; i < Timestamps.Length; i++)
+                {
+                    if (Timestamps[i] != null) return Timestamps[i]??DateTime.MinValue;
+                }
+                return DateTime.MinValue;
+            }
         }
 
         #region Check
