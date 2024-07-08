@@ -748,11 +748,1081 @@ namespace IoTDBdotNET
         #region Engineering Units
         public static class Units
         {
+            public static class All
+            {
+                //this class includes all the unit in all categories. if add to this class, make sure add to the correct category too.
+                public static class Name
+                {
+                    // Acceleration
+                    public const string meters_per_second_per_second = "meters_per_second_per_second";
+
+                    // Angular
+                    public const string degrees_angular = "degrees_angular";
+                    public const string radians = "radians";
+                    public const string radians_per_second = "radians_per_second";
+                    public const string revolutions_per_minute = "revolutions_per_minute";
+
+                    // Area
+                    public const string square_centimeters = "square_centimeters";
+                    public const string square_feet = "square_feet";
+                    public const string square_inches = "square_inches";
+                    public const string square_meters = "square_meters";
+
+                    // Capacitance
+                    public const string farads = "farads";
+                    public const string microfarads = "microfarads";
+                    public const string nanofarads = "nanofarads";
+                    public const string picofarads = "picofarads";
+
+                    // Concentration
+                    public const string mole_percent = "mole_percent";
+                    public const string parts_per_billion = "parts_per_billion";
+                    public const string parts_per_million = "parts_per_million";
+                    public const string percent = "percent";
+                    public const string percent_obscuration_per_foot = "percent_obscuration_per_foot";
+                    public const string percent_obscuration_per_meter = "percent_obscuration_per_meter";
+                    public const string percent_per_second = "percent_per_second";
+                    public const string per_mille = "per_mille";
+
+                    // Currency
+                    public const string afghan_afghani = "afghan_afghani";
+                    public const string albanian_lek = "albanian_lek";
+                    public const string algerian_dinar = "algerian_dinar";
+                    public const string angolan_kwanza = "angolan_kwanza";
+                    public const string argentine_peso = "argentine_peso";
+                    public const string armenian_dram = "armenian_dram";
+                    public const string aruban_florin = "aruban_florin";
+                    public const string australian_dollar = "australian_dollar";
+                    public const string azerbaijani_manat = "azerbaijani_manat";
+                    public const string bahamian_dollar = "bahamian_dollar";
+                    public const string bahraini_dinar = "bahraini_dinar";
+                    public const string bangladeshi_taka = "bangladeshi_taka";
+                    public const string barbadian_dollar = "barbadian_dollar";
+                    public const string belarusian_ruble = "belarusian_ruble";
+                    public const string belize_dollar = "belize_dollar";
+                    public const string bermudian_dollar = "bermudian_dollar";
+                    public const string bhutanese_ngultrum = "bhutanese_ngultrum";
+                    public const string bolivian_boliviano = "bolivian_boliviano";
+                    public const string bosnia_and_herzegovina_convertible_mark = "bosnia_and_herzegovina_convertible_mark";
+                    public const string botswana_pula = "botswana_pula";
+                    public const string brazilian_real = "brazilian_real";
+                    public const string brunei_dollar = "brunei_dollar";
+                    public const string bulgarian_lev = "bulgarian_lev";
+                    public const string burundian_franc = "burundian_franc";
+                    public const string cape_verdean_escudo = "cape_verdean_escudo";
+                    public const string cambodian_riel = "cambodian_riel";
+                    public const string canadian_dollar = "canadian_dollar";
+                    public const string cayman_islands_dollar = "cayman_islands_dollar";
+                    public const string central_african_cfa_franc = "central_african_cfa_franc";
+                    public const string chilean_peso = "chilean_peso";
+                    public const string chinese_yuan = "chinese_yuan";
+                    public const string colombian_peso = "colombian_peso";
+                    public const string comorian_franc = "comorian_franc";
+                    public const string congolese_franc = "congolese_franc";
+                    public const string costa_rican_colon = "costa_rican_colon";
+                    public const string croatian_kuna = "croatian_kuna";
+                    public const string cuban_convertible_peso = "cuban_convertible_peso";
+                    public const string cuban_peso = "cuban_peso";
+                    public const string czech_koruna = "czech_koruna";
+                    public const string danish_krone = "danish_krone";
+                    public const string djiboutian_franc = "djiboutian_franc";
+                    public const string dominican_peso = "dominican_peso";
+                    public const string east_caribbean_dollar = "east_caribbean_dollar";
+                    public const string egyptian_pound = "egyptian_pound";
+                    public const string eritrean_nakfa = "eritrean_nakfa";
+                    public const string ethiopian_birr = "ethiopian_birr";
+                    public const string euro = "euro";
+                    public const string falkland_islands_pound = "falkland_islands_pound";
+                    public const string fiji_dollar = "fiji_dollar";
+                    public const string gambian_dalasi = "gambian_dalasi";
+                    public const string georgian_lari = "georgian_lari";
+                    public const string ghanaian_cedi = "ghanaian_cedi";
+                    public const string gibraltar_pound = "gibraltar_pound";
+                    public const string guatemalan_quetzal = "guatemalan_quetzal";
+                    public const string guinean_franc = "guinean_franc";
+                    public const string guyanese_dollar = "guyanese_dollar";
+                    public const string haitian_gourde = "haitian_gourde";
+                    public const string honduran_lempira = "honduran_lempira";
+                    public const string hong_kong_dollar = "hong_kong_dollar";
+                    public const string hungarian_forint = "hungarian_forint";
+                    public const string icelandic_krona = "icelandic_krona";
+                    public const string indian_rupee = "indian_rupee";
+                    public const string indonesian_rupiah = "indonesian_rupiah";
+                    public const string iranian_rial = "iranian_rial";
+                    public const string iraqi_dinar = "iraqi_dinar";
+                    public const string israeli_new_shekel = "israeli_new_shekel";
+                    public const string jamaican_dollar = "jamaican_dollar";
+                    public const string japanese_yen = "japanese_yen";
+                    public const string jordanian_dinar = "jordanian_dinar";
+                    public const string kazakhstani_tenge = "kazakhstani_tenge";
+                    public const string kenyan_shilling = "kenyan_shilling";
+                    public const string kuwaiti_dinar = "kuwaiti_dinar";
+                    public const string kyrgyzstani_som = "kyrgyzstani_som";
+                    public const string lao_kip = "lao_kip";
+                    public const string lebanese_pound = "lebanese_pound";
+                    public const string lesotho_loti = "lesotho_loti";
+                    public const string liberian_dollar = "liberian_dollar";
+                    public const string libyan_dinar = "libyan_dinar";
+                    public const string macanese_pataca = "macanese_pataca";
+                    public const string malagasy_ariary = "malagasy_ariary";
+                    public const string malawian_kwacha = "malawian_kwacha";
+                    public const string malaysian_ringgit = "malaysian_ringgit";
+                    public const string maldivian_rufiyaa = "maldivian_rufiyaa";
+                    public const string mauritanian_ouguiya = "mauritanian_ouguiya";
+                    public const string mauritian_rupee = "mauritian_rupee";
+                    public const string mexican_peso = "mexican_peso";
+                    public const string moldovan_leu = "moldovan_leu";
+                    public const string mongolian_togrog = "mongolian_togrog";
+                    public const string moroccan_dirham = "moroccan_dirham";
+                    public const string mozambican_metical = "mozambican_metical";
+                    public const string myanmar_kyat = "myanmar_kyat";
+                    public const string namibian_dollar = "namibian_dollar";
+                    public const string nepalese_rupee = "nepalese_rupee";
+                    public const string netherlands_antillean_guilder = "netherlands_antillean_guilder";
+                    public const string new_taiwan_dollar = "new_taiwan_dollar";
+                    public const string new_zealand_dollar = "new_zealand_dollar";
+                    public const string nicaraguan_cordoba = "nicaraguan_cordoba";
+                    public const string nigerian_naira = "nigerian_naira";
+                    public const string north_korean_won = "north_korean_won";
+                    public const string norwegian_krone = "norwegian_krone";
+                    public const string omani_rial = "omani_rial";
+                    public const string pakistani_rupee = "pakistani_rupee";
+                    public const string panamanian_balboa = "panamanian_balboa";
+                    public const string papua_new_guinean_kina = "papua_new_guinean_kina";
+                    public const string paraguayan_guarani = "paraguayan_guarani";
+                    public const string peruvian_sol = "peruvian_sol";
+                    public const string philippine_peso = "philippine_peso";
+                    public const string polish_zloty = "polish_zloty";
+                    public const string qatar_riyal = "qatar_riyal";
+                    public const string romanian_leu = "romanian_leu";
+                    public const string russian_ruble = "russian_ruble";
+                    public const string rwandan_franc = "rwandan_franc";
+                    public const string saint_helena_pound = "saint_helena_pound";
+                    public const string samoan_tala = "samoan_tala";
+                    public const string saudi_riyal = "saudi_riyal";
+                    public const string serbian_dinar = "serbian_dinar";
+                    public const string seychellois_rupee = "seychellois_rupee";
+                    public const string sierra_leonean_leone = "sierra_leonean_leone";
+                    public const string singapore_dollar = "singapore_dollar";
+                    public const string solomon_islands_dollar = "solomon_islands_dollar";
+                    public const string somali_shilling = "somali_shilling";
+                    public const string south_african_rand = "south_african_rand";
+                    public const string south_korean_won = "south_korean_won";
+                    public const string south_sudanese_pound = "south_sudanese_pound";
+                    public const string sri_lankan_rupee = "sri_lankan_rupee";
+                    public const string sudanese_pound = "sudanese_pound";
+                    public const string surinamese_dollar = "surinamese_dollar";
+                    public const string swazi_lilangeni = "swazi_lilangeni";
+                    public const string swedish_krona = "swedish_krona";
+                    public const string swiss_franc = "swiss_franc";
+                    public const string syrian_pound = "syrian_pound";
+                    public const string taiwanese_dollar = "taiwanese_dollar";
+                    public const string tajikistani_somoni = "tajikistani_somoni";
+                    public const string tanzanian_shilling = "tanzanian_shilling";
+                    public const string thai_baht = "thai_baht";
+                    public const string tonga_paanga = "tonga_paanga";
+                    public const string trinidad_and_tobago_dollar = "trinidad_and_tobago_dollar";
+                    public const string tunisian_dinar = "tunisian_dinar";
+                    public const string turkish_lira = "turkish_lira";
+                    public const string turkmenistani_manat = "turkmenistani_manat";
+                    public const string ugandan_shilling = "ugandan_shilling";
+                    public const string ukrainian_hryvnia = "ukrainian_hryvnia";
+                    public const string united_arab_emirates_dirham = "united_arab_emirates_dirham";
+                    public const string uruguayan_peso = "uruguayan_peso";
+                    public const string uzbekistani_som = "uzbekistani_som";
+                    public const string vanuatu_vatu = "vanuatu_vatu";
+                    public const string venezuelan_bolivar = "venezuelan_bolivar";
+                    public const string vietnamese_dong = "vietnamese_dong";
+                    public const string yemeni_rial = "yemeni_rial";
+                    public const string zambian_kwacha = "zambian_kwacha";
+                    public const string zimbabwean_dollar = "zimbabwean_dollar";
+
+                    // DataRate
+                    public const string bits_per_second = "bits_per_second";
+                    public const string gigabits_per_second = "gigabits_per_second";
+                    public const string kilobits_per_second = "kilobits_per_second";
+                    public const string megabits_per_second = "megabits_per_second";
+
+                    // DataStorage
+                    public const string bytes = "bytes";
+                    public const string exabytes = "exabytes";
+                    public const string gigabytes = "gigabytes";
+                    public const string kilobytes = "kilobytes";
+                    public const string megabytes = "megabytes";
+                    public const string petabytes = "petabytes";
+                    public const string terabytes = "terabytes";
+                    public const string yottabytes = "yottabytes";
+                    public const string zettabytes = "zettabytes";
+
+                    // ElectricCharge
+                    public const string ampere_hours = "ampere_hours";
+                    public const string coulombs = "coulombs";
+
+                    // ElectricPotential
+                    public const string kilovolts = "kilovolts";
+                    public const string millivolts = "millivolts";
+                    public const string volts = "volts";
+
+                    // ElectricResistance
+                    public const string kilohms = "kilohms";
+                    public const string megohms = "megohms";
+                    public const string milliohms = "milliohms";
+                    public const string ohms = "ohms";
+
+                    // Electrical
+                    public const string amperes = "amperes";
+                    public const string amperes_per_meter = "amperes_per_meter";
+                    public const string amperes_per_square_meter = "amperes_per_square_meter";
+                    public const string ampere_square_meters = "ampere_square_meters";
+                    public const string bars = "bars";
+                    public const string decibels = "decibels";
+                    public const string decibels_millivolt = "decibels_millivolt";
+                    public const string decibels_volt = "decibels_volt";
+                    public const string degrees_phase = "degrees_phase";
+                    //public const string farads = "farads";
+                    public const string henrys = "henrys";
+                    //public const string kilohms = "kilohms";
+                    public const string kilovolt_amperes = "kilovolt_amperes";
+                    public const string kilovolt_amperes_reactive = "kilovolt_amperes_reactive";
+                    //public const string kilovolts = "kilovolts";
+                    //public const string megohms = "megohms";
+                    public const string megavolt_amperes = "megavolt_amperes";
+                    public const string megavolt_amperes_reactive = "megavolt_amperes_reactive";
+                    public const string megavolts = "megavolts";
+                    public const string microsiemens = "microsiemens";
+                    public const string milliamperes = "milliamperes";
+                    //public const string milliohms = "milliohms";
+                    public const string millisiemens = "millisiemens";
+                    public const string ohm_meter_squared_per_meter = "ohm_meter_squared_per_meter";
+                    public const string ohm_meters = "ohm_meters";
+                    //public const string ohms = "ohms";
+                    public const string power_factor = "power_factor";
+                    public const string siemens = "siemens";
+                    public const string siemens_per_meter = "siemens_per_meter";
+                    public const string teslas = "teslas";
+                    public const string volt_amperes = "volt_amperes";
+                    public const string volt_amperes_reactive = "volt_amperes_reactive";
+                    //public const string volts = "volts";
+                    public const string volts_per_degree_kelvin = "volts_per_degree_kelvin";
+                    public const string volts_per_meter = "volts_per_meter";
+                    public const string webers = "webers";
+
+                    // Energy
+                    public const string ampere_seconds = "ampere_seconds";
+                    public const string btus = "btus";
+                    public const string joules = "joules";
+                    public const string kilo_btus = "kilo_btus";
+                    public const string kilojoules = "kilojoules";
+                    public const string kilojoules_per_kilogram = "kilojoules_per_kilogram";
+                    public const string kilovolt_ampere_hours = "kilovolt_ampere_hours";
+                    public const string kilovolt_ampere_hours_reactive = "kilovolt_ampere_hours_reactive";
+                    public const string kilowatt_hours = "kilowatt_hours";
+                    public const string kilowatt_hours_reactive = "kilowatt_hours_reactive";
+                    public const string megajoules = "megajoules";
+                    public const string megavolt_ampere_hours = "megavolt_ampere_hours";
+                    public const string megavolt_ampere_hours_reactive = "megavolt_ampere_hours_reactive";
+                    public const string megawatt_hours = "megawatt_hours";
+                    public const string megawatt_hours_reactive = "megawatt_hours_reactive";
+                    public const string ton_hours = "ton_hours";
+                    public const string volt_ampere_hours = "volt_ampere_hours";
+                    public const string volt_ampere_hours_reactive = "volt_ampere_hours_reactive";
+                    public const string volt_square_hours = "volt_square_hours";
+                    public const string watt_hours = "watt_hours";
+                    public const string watt_hours_reactive = "watt_hours_reactive";
+
+                    // EnergyDensity
+                    public const string joules_per_cubic_meter = "joules_per_cubic_meter";
+                    public const string kilowatt_hours_per_square_foot = "kilowatt_hours_per_square_foot";
+                    public const string kilowatt_hours_per_square_meter = "kilowatt_hours_per_square_meter";
+                    public const string megajoules_per_square_foot = "megajoules_per_square_foot";
+                    public const string megajoules_per_square_meter = "megajoules_per_square_meter";
+                    public const string watt_hours_per_cubic_meter = "watt_hours_per_cubic_meter";
+
+                    // EnergySpecific
+                    public const string joule_seconds = "joule_seconds";
+
+                    // Enthalpy
+                    public const string btus_per_pound = "btus_per_pound";
+                    public const string btus_per_pound_dry_air = "btus_per_pound_dry_air";
+                    public const string joules_per_degree_kelvin = "joules_per_degree_kelvin";
+                    public const string joules_per_kilogram_dry_air = "joules_per_kilogram_dry_air";
+                    public const string joules_per_kilogram_degree_kelvin = "joules_per_kilogram_degree_kelvin";
+                    public const string kilojoules_per_degree_kelvin = "kilojoules_per_degree_kelvin";
+                    public const string kilojoules_per_kilogram_dry_air = "kilojoules_per_kilogram_dry_air";
+                    public const string megajoules_per_degree_kelvin = "megajoules_per_degree_kelvin";
+                    public const string megajoules_per_kilogram_dry_air = "megajoules_per_kilogram_dry_air";
+
+                    // Force
+                    public const string newton = "newton";
+
+                    // Frequency
+                    public const string cycles_per_hour = "cycles_per_hour";
+                    public const string cycles_per_minute = "cycles_per_minute";
+                    public const string hertz = "hertz";
+                    public const string kilohertz = "kilohertz";
+                    public const string megahertz = "megahertz";
+                    public const string per_hour = "per_hour";
+
+                    // General
+                    public const string decibels_a = "decibels_a";
+                    public const string grams_per_square_meter = "grams_per_square_meter";
+                    public const string nephelometric_turbidity_unit = "nephelometric_turbidity_unit";
+                    public const string pH = "pH";
+
+                    // Humidity
+                    public const string grams_of_water_per_kilogram_dry_air = "grams_of_water_per_kilogram_dry_air";
+                    public const string percent_relative_humidity = "percent_relative_humidity";
+
+                    // Illuminance
+                    public const string foot_candles = "foot_candles";
+                    public const string lux = "lux";
+
+                    // Inductance
+                    //public const string henrys = "henrys";
+                    public const string microhenrys = "microhenrys";
+                    public const string millihenrys = "millihenrys";
+
+                    // Length
+                    public const string centimeters = "centimeters";
+                    public const string feet = "feet";
+                    public const string inches = "inches";
+                    public const string kilometers = "kilometers";
+                    public const string meters = "meters";
+                    public const string micrometers = "micrometers";
+                    public const string millimeters = "millimeters";
+
+                    // Light
+                    public const string candelas = "candelas";
+                    public const string candelas_per_square_meter = "candelas_per_square_meter";
+                    //public const string foot_candles = "foot_candles";
+                    public const string lumens = "lumens";
+                    public const string luxes = "luxes";
+                    public const string watts_per_square_foot = "watts_per_square_foot";
+                    public const string watts_per_square_meter = "watts_per_square_meter";
+
+                    // Luminance
+                    //public const string candelas_per_square_meter = "candelas_per_square_meter";
+                    public const string nits = "nits";
+
+                    // LuminousIntensity
+                    public const string candela = "candela";
+
+                    // MagneticFieldStrength
+                    //public const string amperes_per_meter = "amperes_per_meter";
+                    public const string oersteds = "oersteds";
+
+                    // MagneticFlux
+                    public const string maxwells = "maxwells";
+                    //public const string webers = "webers";
+
+                    // Mass
+                    public const string grams = "grams";
+                    public const string kilograms = "kilograms";
+                    public const string milligrams = "milligrams";
+                    public const string pounds_mass = "pounds_mass";
+                    public const string tons = "tons";
+
+                    // MassDensity
+                    public const string grams_per_cubic_centimeter = "grams_per_cubic_centimeter";
+                    public const string grams_per_cubic_meter = "grams_per_cubic_meter";
+                    public const string kilograms_per_cubic_meter = "kilograms_per_cubic_meter";
+                    public const string micrograms_per_cubic_meter = "micrograms_per_cubic_meter";
+                    public const string milligrams_per_cubic_meter = "milligrams_per_cubic_meter";
+                    public const string nanograms_per_cubic_meter = "nanograms_per_cubic_meter";
+
+                    // MassFlow
+                    public const string grams_per_minute = "grams_per_minute";
+                    public const string grams_per_second = "grams_per_second";
+                    public const string kilograms_per_hour = "kilograms_per_hour";
+                    public const string kilograms_per_minute = "kilograms_per_minute";
+                    public const string kilograms_per_second = "kilograms_per_second";
+                    public const string pounds_mass_per_hour = "pounds_mass_per_hour";
+                    public const string pounds_mass_per_minute = "pounds_mass_per_minute";
+                    public const string pounds_mass_per_second = "pounds_mass_per_second";
+                    public const string tons_per_hour = "tons_per_hour";
+
+                    // MassFraction
+                    public const string grams_per_gram = "grams_per_gram";
+                    public const string grams_per_kilogram = "grams_per_kilogram";
+                    public const string grams_per_liter = "grams_per_liter";
+                    public const string grams_per_milliliter = "grams_per_milliliter";
+                    public const string kilograms_per_kilogram = "kilograms_per_kilogram";
+                    public const string micrograms_per_liter = "micrograms_per_liter";
+                    public const string milligrams_per_gram = "milligrams_per_gram";
+                    public const string milligrams_per_kilogram = "milligrams_per_kilogram";
+                    public const string milligrams_per_liter = "milligrams_per_liter";
+
+                    // PhysicalProperties
+                    public const string newton_seconds = "newton_seconds";
+                    public const string newtons_per_meter = "newtons_per_meter";
+                    public const string pascal_seconds = "pascal_seconds";
+                    public const string square_meters_per_newton = "square_meters_per_newton";
+                    public const string watts_per_meter_per_degree_kelvin = "watts_per_meter_per_degree_kelvin";
+                    public const string watts_per_square_meter_degree_kelvin = "watts_per_square_meter_degree_kelvin";
+
+                    // Power
+                    public const string horsepower = "horsepower";
+                    public const string joule_per_hours = "joule_per_hours";
+                    public const string kilo_btus_per_hour = "kilo_btus_per_hour";
+                    public const string kilowatts = "kilowatts";
+                    public const string megawatts = "megawatts";
+                    public const string milliwatts = "milliwatts";
+                    public const string tons_refrigeration = "tons_refrigeration";
+                    public const string watts = "watts";
+                    public const string btus_per_hour = "btus_per_hour";
+
+                    // Pressure
+                    //public const string bars = "bars";
+                    public const string centimeters_of_mercury = "centimeters_of_mercury";
+                    public const string centimeters_of_water = "centimeters_of_water";
+                    public const string hectopascals = "hectopascals";
+                    public const string inches_of_mercury = "inches_of_mercury";
+                    public const string inches_of_water = "inches_of_water";
+                    public const string kilopascals = "kilopascals";
+                    public const string millibars = "millibars";
+                    public const string millimeters_of_mercury = "millimeters_of_mercury";
+                    public const string millimeters_of_water = "millimeters_of_water";
+                    public const string pascals = "pascals";
+                    public const string pounds_force_per_square_inch = "pounds_force_per_square_inch";
+
+                    // Radiation
+                    public const string becquerels = "becquerels";
+                    public const string curies = "curies";
+                    public const string gray = "gray";
+                    public const string kilobecquerels = "kilobecquerels";
+                    public const string megabecquerels = "megabecquerels";
+                    public const string milligray = "milligray";
+                    public const string millirems = "millirems";
+                    public const string millirems_per_hour = "millirems_per_hour";
+                    public const string millisieverts = "millisieverts";
+                    public const string microsieverts = "microsieverts";
+                    public const string microsieverts_per_hour = "microsieverts_per_hour";
+                    public const string microgray = "microgray";
+                    public const string rads = "rads";
+                    public const string rems = "rems";
+                    public const string sieverts = "sieverts";
+
+                    // RadiantIntensity
+                    public const string microwatts_per_steradian = "microwatts_per_steradian";
+                    public const string watts_per_steradian = "watts_per_steradian";
+
+                    // Temperature
+                    public const string degree_days_celsius = "degree_days_celsius";
+                    public const string degree_days_fahrenheit = "degree_days_fahrenheit";
+                    public const string degrees_celsius = "degrees_celsius";
+                    public const string degrees_fahrenheit = "degrees_fahrenheit";
+                    public const string degrees_kelvin = "degrees_kelvin";
+                    public const string degrees_rankine = "degrees_rankine";
+                    public const string delta_degrees_fahrenheit = "delta_degrees_fahrenheit";
+                    public const string delta_degrees_kelvin = "delta_degrees_kelvin";
+
+                    // TemperatureRate
+                    public const string degrees_celsius_per_hour = "degrees_celsius_per_hour";
+                    public const string degrees_celsius_per_minute = "degrees_celsius_per_minute";
+                    public const string degrees_fahrenheit_per_hour = "degrees_fahrenheit_per_hour";
+                    public const string degrees_fahrenheit_per_minute = "degrees_fahrenheit_per_minute";
+                    public const string minutes_per_degree_kelvin = "minutes_per_degree_kelvin";
+                    public const string psi_per_degree_fahrenheit = "psi_per_degree_fahrenheit";
+
+                    // Time
+                    public const string days = "days";
+                    public const string hours = "hours";
+                    public const string hundredths_seconds = "hundredths_seconds";
+                    public const string milliseconds = "milliseconds";
+                    public const string minutes = "minutes";
+                    public const string months = "months";
+                    public const string seconds = "seconds";
+                    public const string weeks = "weeks";
+                    public const string years = "years";
+
+                    // Torque
+                    public const string newton_meters = "newton_meters";
+
+                    // Velocity
+                    public const string feet_per_minute = "feet_per_minute";
+                    public const string feet_per_second = "feet_per_second";
+                    public const string millimeters_per_second = "millimeters_per_second";
+                    public const string kilometers_per_hour = "kilometers_per_hour";
+                    public const string meters_per_hour = "meters_per_hour";
+                    public const string meters_per_minute = "meters_per_minute";
+                    public const string meters_per_second = "meters_per_second";
+                    public const string miles_per_hour = "miles_per_hour";
+                    public const string millimeters_per_minute = "millimeters_per_minute";
+
+                    // Volume
+                    public const string cubic_feet = "cubic_feet";
+                    public const string cubic_meters = "cubic_meters";
+                    public const string imperial_gallons = "imperial_gallons";
+                    public const string liters = "liters";
+                    public const string milliliters = "milliliters";
+                    public const string us_gallons = "us_gallons";
+
+                    // VolumeSpecific
+                    public const string cubic_feet_per_pound = "cubic_feet_per_pound";
+                    public const string cubic_meters_per_kilogram = "cubic_meters_per_kilogram";
+
+                    // VolumetricFlow
+                    public const string cubic_feet_per_day = "cubic_feet_per_day";
+                    public const string cubic_feet_per_hour = "cubic_feet_per_hour";
+                    public const string cubic_feet_per_minute = "cubic_feet_per_minute";
+                    public const string cubic_feet_per_second = "cubic_feet_per_second";
+                    public const string cubic_meters_per_day = "cubic_meters_per_day";
+                    public const string cubic_meters_per_hour = "cubic_meters_per_hour";
+                    public const string cubic_meters_per_minute = "cubic_meters_per_minute";
+                    public const string cubic_meters_per_second = "cubic_meters_per_second";
+                    public const string imperial_gallons_per_minute = "imperial_gallons_per_minute";
+                    public const string liters_per_hour = "liters_per_hour";
+                    public const string liters_per_minute = "liters_per_minute";
+                    public const string liters_per_second = "liters_per_second";
+                    public const string milliliters_per_second = "milliliters_per_second";
+                    public const string million_standard_cubic_feet_per_day = "million_standard_cubic_feet_per_day";
+                    public const string million_standard_cubic_feet_per_minute = "million_standard_cubic_feet_per_minute";
+                    public const string pounds_mass_per_day = "pounds_mass_per_day";
+                    public const string standard_cubic_feet_per_day = "standard_cubic_feet_per_day";
+                    public const string thousand_cubic_feet_per_day = "thousand_cubic_feet_per_day";
+                    public const string thousand_standard_cubic_feet_per_day = "thousand_standard_cubic_feet_per_day";
+                    public const string us_gallons_per_hour = "us_gallons_per_hour";
+                    public const string us_gallons_per_minute = "us_gallons_per_minute";
+                }
+                public static class Symbol
+                {
+                    // Acceleration
+                    public const string meters_per_second_per_second = "m/s²";
+
+                    // Angular
+                    public const string degrees_angular = "°";
+                    public const string radians = "rad";
+                    public const string radians_per_second = "rad/s";
+                    public const string revolutions_per_minute = "RPM";
+
+                    // Area
+                    public const string square_centimeters = "cm²";
+                    public const string square_feet = "ft²";
+                    public const string square_inches = "in²";
+                    public const string square_meters = "m²";
+
+                    // Capacitance
+                    public const string farads = "F";
+                    public const string microfarads = "μF";
+                    public const string nanofarads = "nF";
+                    public const string picofarads = "pF";
+
+                    // Concentration
+                    public const string mole_percent = "mol%";
+                    public const string parts_per_billion = "ppb";
+                    public const string parts_per_million = "ppm";
+                    public const string percent = "%";
+                    public const string percent_obscuration_per_foot = "%/ft";
+                    public const string percent_obscuration_per_meter = "%/m";
+                    public const string percent_per_second = "%/s";
+                    public const string per_mille = "‰";
+
+                    // Currency
+                    public const string afghan_afghani = "؋";
+                    public const string albanian_lek = "L";
+                    public const string algerian_dinar = "د.ج";
+                    public const string angolan_kwanza = "Kz";
+                    public const string argentine_peso = "$";
+                    public const string armenian_dram = "֏";
+                    public const string aruban_florin = "ƒ";
+                    public const string australian_dollar = "$";
+                    public const string azerbaijani_manat = "₼";
+                    public const string bahamian_dollar = "$";
+                    public const string bahraini_dinar = ".د.ب";
+                    public const string bangladeshi_taka = "৳";
+                    public const string barbadian_dollar = "$";
+                    public const string belarusian_ruble = "Br";
+                    public const string belize_dollar = "$";
+                    public const string bermudian_dollar = "$";
+                    public const string bhutanese_ngultrum = "Nu.";
+                    public const string bolivian_boliviano = "Bs.";
+                    public const string bosnia_and_herzegovina_convertible_mark = "KM";
+                    public const string botswana_pula = "P";
+                    public const string brazilian_real = "R$";
+                    public const string brunei_dollar = "$";
+                    public const string bulgarian_lev = "лв";
+                    public const string burundian_franc = "FBu";
+                    public const string cape_verdean_escudo = "$";
+                    public const string cambodian_riel = "៛";
+                    public const string canadian_dollar = "$";
+                    public const string cayman_islands_dollar = "$";
+                    public const string central_african_cfa_franc = "Fr";
+                    public const string chilean_peso = "$";
+                    public const string chinese_yuan = "¥";
+                    public const string colombian_peso = "$";
+                    public const string comorian_franc = "CF";
+                    public const string congolese_franc = "FC";
+                    public const string costa_rican_colon = "₡";
+                    public const string croatian_kuna = "kn";
+                    public const string cuban_convertible_peso = "$";
+                    public const string cuban_peso = "$";
+                    public const string czech_koruna = "Kč";
+                    public const string danish_krone = "kr";
+                    public const string djiboutian_franc = "Fdj";
+                    public const string dominican_peso = "$";
+                    public const string east_caribbean_dollar = "$";
+                    public const string egyptian_pound = "£";
+                    public const string eritrean_nakfa = "Nfk";
+                    public const string ethiopian_birr = "Br";
+                    public const string euro = "€";
+                    public const string falkland_islands_pound = "£";
+                    public const string fiji_dollar = "$";
+                    public const string gambian_dalasi = "D";
+                    public const string georgian_lari = "₾";
+                    public const string ghanaian_cedi = "₵";
+                    public const string gibraltar_pound = "£";
+                    public const string guatemalan_quetzal = "Q";
+                    public const string guinean_franc = "FG";
+                    public const string guyanese_dollar = "$";
+                    public const string haitian_gourde = "G";
+                    public const string honduran_lempira = "L";
+                    public const string hong_kong_dollar = "$";
+                    public const string hungarian_forint = "Ft";
+                    public const string icelandic_krona = "kr";
+                    public const string indian_rupee = "₹";
+                    public const string indonesian_rupiah = "Rp";
+                    public const string iranian_rial = "﷼";
+                    public const string iraqi_dinar = "ع.د";
+                    public const string israeli_new_shekel = "₪";
+                    public const string jamaican_dollar = "$";
+                    public const string japanese_yen = "¥";
+                    public const string jordanian_dinar = "د.ا";
+                    public const string kazakhstani_tenge = "₸";
+                    public const string kenyan_shilling = "KSh";
+                    public const string kuwaiti_dinar = "د.ك";
+                    public const string kyrgyzstani_som = "лв";
+                    public const string lao_kip = "₭";
+                    public const string lebanese_pound = "ل.ل";
+                    public const string lesotho_loti = "L";
+                    public const string liberian_dollar = "$";
+                    public const string libyan_dinar = "ل.د";
+                    public const string macanese_pataca = "MOP$";
+                    public const string malagasy_ariary = "Ar";
+                    public const string malawian_kwacha = "MK";
+                    public const string malaysian_ringgit = "RM";
+                    public const string maldivian_rufiyaa = "ރ.";
+                    public const string mauritanian_ouguiya = "UM";
+                    public const string mauritian_rupee = "₨";
+                    public const string mexican_peso = "$";
+                    public const string moldovan_leu = "L";
+                    public const string mongolian_togrog = "₮";
+                    public const string moroccan_dirham = "د.م.";
+                    public const string mozambican_metical = "MT";
+                    public const string myanmar_kyat = "K";
+                    public const string namibian_dollar = "$";
+                    public const string nepalese_rupee = "₨";
+                    public const string netherlands_antillean_guilder = "ƒ";
+                    public const string new_taiwan_dollar = "$";
+                    public const string new_zealand_dollar = "$";
+                    public const string nicaraguan_cordoba = "C$";
+                    public const string nigerian_naira = "₦";
+                    public const string north_korean_won = "₩";
+                    public const string norwegian_krone = "kr";
+                    public const string omani_rial = "ر.ع.";
+                    public const string pakistani_rupee = "₨";
+                    public const string panamanian_balboa = "B/.";
+                    public const string papua_new_guinean_kina = "K";
+                    public const string paraguayan_guarani = "₲";
+                    public const string peruvian_sol = "S/";
+                    public const string philippine_peso = "₱";
+                    public const string polish_zloty = "zł";
+                    public const string qatar_riyal = "ر.ق";
+                    public const string romanian_leu = "lei";
+                    public const string russian_ruble = "₽";
+                    public const string rwandan_franc = "FRw";
+                    public const string saint_helena_pound = "£";
+                    public const string samoan_tala = "WS$";
+                    public const string saudi_riyal = "ر.س";
+                    public const string serbian_dinar = "дин.";
+                    public const string seychellois_rupee = "₨";
+                    public const string sierra_leonean_leone = "Le";
+                    public const string singapore_dollar = "$";
+                    public const string solomon_islands_dollar = "$";
+                    public const string somali_shilling = "Sh";
+                    public const string south_african_rand = "R";
+                    public const string south_korean_won = "₩";
+                    public const string south_sudanese_pound = "£";
+                    public const string sri_lankan_rupee = "₨";
+                    public const string sudanese_pound = "ج.س.";
+                    public const string surinamese_dollar = "$";
+                    public const string swazi_lilangeni = "L";
+                    public const string swedish_krona = "kr";
+                    public const string swiss_franc = "Fr";
+                    public const string syrian_pound = "£";
+                    public const string taiwanese_dollar = "NT$";
+                    public const string tajikistani_somoni = "ЅМ";
+                    public const string tanzanian_shilling = "Sh";
+                    public const string thai_baht = "฿";
+                    public const string tonga_paanga = "T$";
+                    public const string trinidad_and_tobago_dollar = "$";
+                    public const string tunisian_dinar = "د.ت";
+                    public const string turkish_lira = "₺";
+                    public const string turkmenistani_manat = "m";
+                    public const string ugandan_shilling = "USh";
+                    public const string ukrainian_hryvnia = "₴";
+                    public const string united_arab_emirates_dirham = "د.إ";
+                    public const string uruguayan_peso = "$U";
+                    public const string uzbekistani_som = "so'm";
+                    public const string vanuatu_vatu = "VT";
+                    public const string venezuelan_bolivar = "Bs.";
+                    public const string vietnamese_dong = "₫";
+                    public const string yemeni_rial = "﷼";
+                    public const string zambian_kwacha = "ZK";
+                    public const string zimbabwean_dollar = "$";
+
+                    // DataRate
+                    public const string bits_per_second = "bps";
+                    public const string gigabits_per_second = "Gbps";
+                    public const string kilobits_per_second = "kbps";
+                    public const string megabits_per_second = "Mbps";
+
+                    // DataStorage
+                    public const string bytes = "B";
+                    public const string exabytes = "EB";
+                    public const string gigabytes = "GB";
+                    public const string kilobytes = "KB";
+                    public const string megabytes = "MB";
+                    public const string petabytes = "PB";
+                    public const string terabytes = "TB";
+                    public const string yottabytes = "YB";
+                    public const string zettabytes = "ZB";
+
+                    // ElectricCharge
+                    public const string ampere_hours = "Ah";
+                    public const string coulombs = "C";
+
+                    // ElectricPotential
+                    public const string kilovolts = "kV";
+                    public const string millivolts = "mV";
+                    public const string volts = "V";
+
+                    // ElectricResistance
+                    public const string kilohms = "kΩ";
+                    public const string megohms = "MΩ";
+                    public const string milliohms = "mΩ";
+                    public const string ohms = "Ω";
+
+                    // Electrical
+                    public const string amperes = "A";
+                    public const string amperes_per_meter = "A/m";
+                    public const string amperes_per_square_meter = "A/m²";
+                    public const string ampere_square_meters = "A·m²";
+                    public const string bars = "bar";
+                    public const string decibels = "dB";
+                    public const string decibels_millivolt = "dBmV";
+                    public const string decibels_volt = "dBV";
+                    public const string degrees_phase = "°";
+                    //public const string farads = "F";
+                    public const string henrys = "H";
+                    //public const string kilohms = "kΩ";
+                    public const string kilovolt_amperes = "kVA";
+                    public const string kilovolt_amperes_reactive = "kVAR";
+                    //public const string kilovolts = "kV";
+                    //public const string megohms = "MΩ";
+                    public const string megavolt_amperes = "MVA";
+                    public const string megavolt_amperes_reactive = "MVAR";
+                    public const string megavolts = "MV";
+                    public const string microsiemens = "µS";
+                    public const string milliamperes = "mA";
+                    //public const string milliohms = "mΩ";
+                    public const string millisiemens = "mS";
+                    public const string ohm_meter_squared_per_meter = "Ω·m²/m";
+                    public const string ohm_meters = "Ω·m";
+                    //public const string ohms = "Ω";
+                    public const string power_factor = "PF";
+                    public const string siemens = "S";
+                    public const string siemens_per_meter = "S/m";
+                    public const string teslas = "T";
+                    public const string volt_amperes = "VA";
+                    public const string volt_amperes_reactive = "VAR";
+                    //public const string volts = "V";
+                    public const string volts_per_degree_kelvin = "V/K";
+                    public const string volts_per_meter = "V/m";
+                    public const string webers = "Wb";
+
+                    // Energy
+                    public const string ampere_seconds = "A·s";
+                    public const string btus = "BTU";
+                    public const string joules = "J";
+                    public const string kilo_btus = "kBTU";
+                    public const string kilojoules = "kJ";
+                    public const string kilojoules_per_kilogram = "kJ/kg";
+                    public const string kilovolt_ampere_hours = "kVAh";
+                    public const string kilovolt_ampere_hours_reactive = "kVARh";
+                    public const string kilowatt_hours = "kWh";
+                    public const string kilowatt_hours_reactive = "kVARh";
+                    public const string megajoules = "MJ";
+                    public const string megavolt_ampere_hours = "MVAh";
+                    public const string megavolt_ampere_hours_reactive = "MVARh";
+                    public const string megawatt_hours = "MWh";
+                    public const string megawatt_hours_reactive = "MVARh";
+                    public const string ton_hours = "ton·h";
+                    public const string volt_ampere_hours = "VAh";
+                    public const string volt_ampere_hours_reactive = "VARh";
+                    public const string volt_square_hours = "V²h";
+                    public const string watt_hours = "Wh";
+                    public const string watt_hours_reactive = "VARh";
+
+                    // EnergyDensity
+                    public const string joules_per_cubic_meter = "J/m³";
+                    public const string kilowatt_hours_per_square_foot = "kWh/ft²";
+                    public const string kilowatt_hours_per_square_meter = "kWh/m²";
+                    public const string megajoules_per_square_foot = "MJ/ft²";
+                    public const string megajoules_per_square_meter = "MJ/m²";
+                    public const string watt_hours_per_cubic_meter = "Wh/m³";
+
+                    // EnergySpecific
+                    public const string joule_seconds = "J·s";
+
+                    // Enthalpy
+                    public const string btus_per_pound = "BTU/lb";
+                    public const string btus_per_pound_dry_air = "BTU/lb_da";
+                    public const string joules_per_degree_kelvin = "J/K";
+                    public const string joules_per_kilogram_dry_air = "J/kg_da";
+                    public const string joules_per_kilogram_degree_kelvin = "J/(kg·K)";
+                    public const string kilojoules_per_degree_kelvin = "kJ/K";
+                    public const string kilojoules_per_kilogram_dry_air = "kJ/kg_da";
+                    public const string megajoules_per_degree_kelvin = "MJ/K";
+                    public const string megajoules_per_kilogram_dry_air = "MJ/kg_da";
+
+                    // Force
+                    public const string newton = "N";
+
+                    // Frequency
+                    public const string cycles_per_hour = "cph";
+                    public const string cycles_per_minute = "cpm";
+                    public const string hertz = "Hz";
+                    public const string kilohertz = "kHz";
+                    public const string megahertz = "MHz";
+                    public const string per_hour = "/h";
+
+                    // General
+                    public const string decibels_a = "dBA";
+                    public const string grams_per_square_meter = "g/m²";
+                    public const string nephelometric_turbidity_unit = "NTU";
+                    public const string pH = "pH";
+
+                    // Humidity
+                    public const string grams_of_water_per_kilogram_dry_air = "g/kg_da";
+                    public const string percent_relative_humidity = "%RH";
+
+                    // Illuminance
+                    public const string foot_candles = "fc";
+                    public const string lux = "lx";
+
+                    // Inductance
+                    //public const string henrys = "H";
+                    public const string microhenrys = "μH";
+                    public const string millihenrys = "mH";
+
+                    // Length
+                    public const string centimeters = "cm";
+                    public const string feet = "ft";
+                    public const string inches = "in";
+                    public const string kilometers = "km";
+                    public const string meters = "m";
+                    public const string micrometers = "µm";
+                    public const string millimeters = "mm";
+
+                    // Light
+                    public const string candelas = "cd";
+                    public const string candelas_per_square_meter = "cd/m²";
+                    //public const string foot_candles = "fc";
+                    public const string lumens = "lm";
+                    public const string luxes = "lx";
+                    public const string watts_per_square_foot = "W/ft²";
+                    public const string watts_per_square_meter = "W/m²";
+
+                    // Luminance
+                    //public const string candelas_per_square_meter = "cd/m²";
+                    public const string nits = "nt";
+
+                    // LuminousIntensity
+                    public const string candela = "cd";
+
+                    // MagneticFieldStrength
+                    //public const string amperes_per_meter = "A/m";
+                    public const string oersteds = "Oe";
+
+                    // MagneticFlux
+                    public const string maxwells = "Mx";
+                    //public const string webers = "Wb";
+
+                    // Mass
+                    public const string grams = "g";
+                    public const string kilograms = "kg";
+                    public const string milligrams = "mg";
+                    public const string pounds_mass = "lb";
+                    public const string tons = "t";
+
+                    // MassDensity
+                    public const string grams_per_cubic_centimeter = "g/cm³";
+                    public const string grams_per_cubic_meter = "g/m³";
+                    public const string kilograms_per_cubic_meter = "kg/m³";
+                    public const string micrograms_per_cubic_meter = "µg/m³";
+                    public const string milligrams_per_cubic_meter = "mg/m³";
+                    public const string nanograms_per_cubic_meter = "ng/m³";
+
+                    // MassFlow
+                    public const string grams_per_minute = "g/min";
+                    public const string grams_per_second = "g/s";
+                    public const string kilograms_per_hour = "kg/h";
+                    public const string kilograms_per_minute = "kg/min";
+                    public const string kilograms_per_second = "kg/s";
+                    public const string pounds_mass_per_hour = "lb/h";
+                    public const string pounds_mass_per_minute = "lb/min";
+                    public const string pounds_mass_per_second = "lb/s";
+                    public const string tons_per_hour = "t/h";
+
+                    // MassFraction
+                    public const string grams_per_gram = "g/g";
+                    public const string grams_per_kilogram = "g/kg";
+                    public const string grams_per_liter = "g/L";
+                    public const string grams_per_milliliter = "g/mL";
+                    public const string kilograms_per_kilogram = "kg/kg";
+                    public const string micrograms_per_liter = "µg/L";
+                    public const string milligrams_per_gram = "mg/g";
+                    public const string milligrams_per_kilogram = "mg/kg";
+                    public const string milligrams_per_liter = "mg/L";
+
+                    // PhysicalProperties
+                    public const string newton_seconds = "N·s";
+                    public const string newtons_per_meter = "N/m";
+                    public const string pascal_seconds = "Pa·s";
+                    public const string square_meters_per_newton = "m²/N";
+                    public const string watts_per_meter_per_degree_kelvin = "W/(m·K)";
+                    public const string watts_per_square_meter_degree_kelvin = "W/(m²·K)";
+
+                    // Power
+                    public const string horsepower = "hp";
+                    public const string joule_per_hours = "J/h";
+                    public const string kilo_btus_per_hour = "kBTU/h";
+                    public const string kilowatts = "kW";
+                    public const string megawatts = "MW";
+                    public const string milliwatts = "mW";
+                    public const string tons_refrigeration = "RT";
+                    public const string watts = "W";
+                    public const string btus_per_hour = "BTU/h";
+
+                    // Pressure
+                    //public const string bars = "bar";
+                    public const string centimeters_of_mercury = "cmHg";
+                    public const string centimeters_of_water = "cmH₂O";
+                    public const string hectopascals = "hPa";
+                    public const string inches_of_mercury = "inHg";
+                    public const string inches_of_water = "inH₂O";
+                    public const string kilopascals = "kPa";
+                    public const string millibars = "mbar";
+                    public const string millimeters_of_mercury = "mmHg";
+                    public const string millimeters_of_water = "mmH₂O";
+                    public const string pascals = "Pa";
+                    public const string pounds_force_per_square_inch = "psi";
+
+                    // Radiation
+                    public const string becquerels = "Bq";
+                    public const string curies = "Ci";
+                    public const string gray = "Gy";
+                    public const string kilobecquerels = "kBq";
+                    public const string megabecquerels = "MBq";
+                    public const string milligray = "mGy";
+                    public const string millirems = "mrem";
+                    public const string millirems_per_hour = "mrem/h";
+                    public const string millisieverts = "mSv";
+                    public const string microsieverts = "µSv";
+                    public const string microsieverts_per_hour = "µSv/h";
+                    public const string microgray = "µGy";
+                    public const string rads = "rad";
+                    public const string rems = "rem";
+                    public const string sieverts = "Sv";
+
+                    // RadiantIntensity
+                    public const string microwatts_per_steradian = "µW/sr";
+                    public const string watts_per_steradian = "W/sr";
+
+                    // Temperature
+                    public const string degree_days_celsius = "°C·d";
+                    public const string degree_days_fahrenheit = "°F·d";
+                    public const string degrees_celsius = "°C";
+                    public const string degrees_fahrenheit = "°F";
+                    public const string degrees_kelvin = "K";
+                    public const string degrees_rankine = "°R";
+                    public const string delta_degrees_fahrenheit = "Δ°F";
+                    public const string delta_degrees_kelvin = "ΔK";
+
+                    // TemperatureRate
+                    public const string degrees_celsius_per_hour = "°C/h";
+                    public const string degrees_celsius_per_minute = "°C/min";
+                    public const string degrees_fahrenheit_per_hour = "°F/h";
+                    public const string degrees_fahrenheit_per_minute = "°F/min";
+                    public const string minutes_per_degree_kelvin = "min/K";
+                    public const string psi_per_degree_fahrenheit = "psi/°F";
+
+                    // Time
+                    public const string days = "d";
+                    public const string hours = "h";
+                    public const string hundredths_seconds = "cs";
+                    public const string milliseconds = "ms";
+                    public const string minutes = "min";
+                    public const string months = "mo";
+                    public const string seconds = "s";
+                    public const string weeks = "wk";
+                    public const string years = "y";
+
+                    // Torque
+                    public const string newton_meters = "N·m";
+
+                    // Velocity
+                    public const string feet_per_minute = "ft/min";
+                    public const string feet_per_second = "ft/s";
+                    public const string millimeters_per_second = "mm/s";
+                    public const string kilometers_per_hour = "km/h";
+                    public const string meters_per_hour = "m/h";
+                    public const string meters_per_minute = "m/min";
+                    public const string meters_per_second = "m/s";
+                    public const string miles_per_hour = "mph";
+                    public const string millimeters_per_minute = "mm/min";
+
+                    // Volume
+                    public const string cubic_feet = "ft³";
+                    public const string cubic_meters = "m³";
+                    public const string imperial_gallons = "gal_imp";
+                    public const string liters = "L";
+                    public const string milliliters = "mL";
+                    public const string us_gallons = "gal_us";
+
+                    // VolumeSpecific
+                    public const string cubic_feet_per_pound = "ft³/lb";
+                    public const string cubic_meters_per_kilogram = "m³/kg";
+
+                    // VolumetricFlow
+                    public const string cubic_feet_per_day = "ft³/d";
+                    public const string cubic_feet_per_hour = "ft³/h";
+                    public const string cubic_feet_per_minute = "ft³/min";
+                    public const string cubic_feet_per_second = "ft³/s";
+                    public const string cubic_meters_per_day = "m³/d";
+                    public const string cubic_meters_per_hour = "m³/h";
+                    public const string cubic_meters_per_minute = "m³/min";
+                    public const string cubic_meters_per_second = "m³/s";
+                    public const string imperial_gallons_per_minute = "gal_imp/min";
+                    public const string liters_per_hour = "L/h";
+                    public const string liters_per_minute = "L/min";
+                    public const string liters_per_second = "L/s";
+                    public const string milliliters_per_second = "mL/s";
+                    public const string million_standard_cubic_feet_per_day = "MMSCFD";
+                    public const string million_standard_cubic_feet_per_minute = "MMSCFM";
+                    public const string pounds_mass_per_day = "lbm/d";
+                    public const string standard_cubic_feet_per_day = "SCFD";
+                    public const string thousand_cubic_feet_per_day = "MCFD";
+                    public const string thousand_standard_cubic_feet_per_day = "MSCFD";
+                    public const string us_gallons_per_hour = "gal_us/h";
+                    public const string us_gallons_per_minute = "gal_us/min";
+                }
+            }
             public static class Acceleration
             {
                 public static class Name
                 {
-                    public const string meters_per_second_per_second = "meters_per_second_per_second"; // 166 Acceleration
+                    public const string meters_per_second_per_second = All.Name.meters_per_second_per_second; // 166 Acceleration
                 }
 
                 public static class Symbol
