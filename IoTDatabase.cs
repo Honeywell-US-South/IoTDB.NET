@@ -26,7 +26,7 @@ namespace IoTDBdotNET
         public IoTDatabase(string dbName, string dbPath, string? password)
         {
             _password = password ?? "";
-          
+           
             // Directory checks and creation
             InitializeDirectories(dbName, dbPath);
             if (!Directory.Exists(_dbPath)) throw new DirectoryNotFoundException($"Unable to create database directory. {_dbPath}");
