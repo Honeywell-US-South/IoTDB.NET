@@ -13,6 +13,7 @@ namespace IoTDBdotNET
         public string Description { get; set; } = string.Empty;
         public string?[] Values { get; set; } = new string?[16];
         public DateTime?[] Timestamps { get; set; } = new DateTime?[16];
+        public string Unit { get; set; } = "n/a";
         public bool AllowManualOperator { get; set; } = true;
         public bool TimeSeries { get; set; } = false;
         public bool BlockChain { get; set; } = false;
