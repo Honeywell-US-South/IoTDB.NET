@@ -25,11 +25,27 @@ namespace IoTDBdotNET
             InitValues();
         }
 
-        public IotValue(string name, string description, object? value, bool isPassword, bool allowManualOperator, bool timeSeries, bool blockChain)
+        public IotValue(string name, string description)
         {
             InitValues();
             Name = name;
             Description = description;
+        }
+
+        public IotValue (string name, string description, object? value, string unit)
+        {
+            InitValues();
+            Name = name;
+            Description = description;
+            SetValue(16, value);
+            Unit = unit;
+        }
+        public IotValue(string name, string description, object? value, string unit, bool isPassword, bool allowManualOperator, bool timeSeries, bool blockChain)
+        {
+            InitValues();
+            Name = name;
+            Description = description;
+            Unit = unit;
             AllowManualOperator = allowManualOperator;
             TimeSeries = timeSeries;
             BlockChain = blockChain;
