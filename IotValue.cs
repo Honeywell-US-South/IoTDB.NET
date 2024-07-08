@@ -17,8 +17,23 @@ namespace IoTDBdotNET
         public bool AllowManualOperator { get; set; } = true;
         public bool TimeSeries { get; set; } = false;
         public bool BlockChain { get; set; } = false;
-        public System.Type? StrictDataType { get; set; } = null;
+        public string? StrictDataType { get; set; } = null;
         public bool IsPassword { get; set; } = false;
+
+
+      
+        public System.Type? DataType { get
+            {
+                if (StrictDataType == null) return null;
+                Type? type = Type.GetType(StrictDataType);
+                return type;
+            }
+            set
+            {
+                
+                StrictDataType = value?.AssemblyQualifiedName;
+            }
+        }
 
         public IotValue()
         {
@@ -91,7 +106,7 @@ namespace IoTDBdotNET
             return true;
         }
 
-
+       
         public string? Value
         {
             get
@@ -105,6 +120,7 @@ namespace IoTDBdotNET
             }
             
         }
+
 
         public int Priority
         {
@@ -132,6 +148,37 @@ namespace IoTDBdotNET
         }
 
         #region Check
+
+        /// <summary>
+        /// Check if value is Null
+        /// </summary>
+        public bool IsNull
+        {
+            get
+            {
+                foreach (var item in Values)
+                {
+                    if (item != null) return false;
+
+                }
+                return true;
+            }
+        }
+
+        public bool IsStrictDataType
+        {
+            get
+            {
+
+                try
+                {
+                    var type = DataType;
+                    return type != null;
+                }
+                catch { }
+                return false;
+            }
+        }
         /// <summary>
         /// Check if value is Guid type
         /// </summary>
@@ -681,7 +728,7 @@ namespace IoTDBdotNET
         {
             if (value == null) return;
             if (StrictDataType == null) return;
-            if (value.GetType() != StrictDataType)
+            if (value.GetType() != DataType)
             {
                 throw new ArgumentException($"Invalid data type. Expected strict data type of {StrictDataType}, but got {value.GetType()}.");
             }
@@ -746,6 +793,7 @@ namespace IoTDBdotNET
         #endregion
 
         #region Engineering Units
+
         public static class Units
         {
             public static class All
