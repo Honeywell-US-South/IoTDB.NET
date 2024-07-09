@@ -852,9 +852,13 @@ namespace IoTDBdotNET
         /// <returns>The hashed password as a hexadecimal string.</returns>
         public static string? ToPasswordHash(string? password)
         {
+            //null password is null
+            if (password == null) return null;
+
+            //empty password is no password. Different than null
             if (string.IsNullOrEmpty(password))
             {
-                return null;
+                return string.Empty;
             }
 
             using (SHA256 sha256 = SHA256.Create())
