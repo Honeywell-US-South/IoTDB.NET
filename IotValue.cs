@@ -1,9 +1,11 @@
 ﻿using IoTDBdotNET.Attributes;
 using IoTDBdotNET.Extensions;
+using IoTDBdotNET.Helper;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace IoTDBdotNET
@@ -20,7 +22,7 @@ namespace IoTDBdotNET
         public string? StrictDataType { get; set; } = null;
         public IotValueFlags Flags { get; set; } = IotValueFlags.None;
 
-        #region Constructors
+        #region Constructors & Init
 
         public IotValue()
         {
@@ -69,21 +71,6 @@ namespace IoTDBdotNET
             }
         }
 
-        [JsonIgnore]
-        private static JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        };
-        
-        public string SerializeToJson()
-        {
-            return JsonSerializer.Serialize(this, _serializerOptions);
-        }
-        
-        public abstract IotValue Copy();
-        
-        #endregion
-
         private void InitValues()
         {
             for (int i = 0; i < Values.Length; i++)
@@ -92,6 +79,27 @@ namespace IoTDBdotNET
                 Timestamps[i] = null;
             }
         }
+
+        [JsonIgnore]
+        [BsonIgnore]
+        private static JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+        
+        public string SerializeToJson()
+        {
+            return System.Text.Json.JsonSerializer.Serialize(this, _serializerOptions);
+        }
+        
+        public virtual IotValue Copy()
+        {
+            return ObjectHelper.DeepCopy(this);
+        }
+
+        #endregion
+
+        
         private bool SetRawValue(int index, string? value)
         {
             if (index < 0 && index >= Values.Length) return false;
@@ -111,7 +119,7 @@ namespace IoTDBdotNET
             return true;
         }
 
-
+        [JsonIgnore]
         [BsonIgnore]
         public System.Type? DataType
         {
@@ -134,12 +142,15 @@ namespace IoTDBdotNET
         }
 
         #region Flags
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsAllowManualOperator
         {
             get { return AllowManualOperator;  }
             set { AllowManualOperator = value; }
         }
+
+        [JsonIgnore]
         [BsonIgnore]
         public bool AllowManualOperator
         {
@@ -147,6 +158,7 @@ namespace IoTDBdotNET
             set => Flags = value ? Flags.Enable(IotValueFlags.AllowManualOperator) : Flags.Disable(IotValueFlags.AllowManualOperator);
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsTimeSeries
         {
@@ -154,6 +166,7 @@ namespace IoTDBdotNET
             set { TimeSeries = value; }
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool TimeSeries
         {
@@ -161,6 +174,7 @@ namespace IoTDBdotNET
             set => Flags = value ? Flags.Enable(IotValueFlags.TimeSeries) : Flags.Disable(IotValueFlags.TimeSeries);
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsBlockChain
         {
@@ -168,6 +182,7 @@ namespace IoTDBdotNET
             set { BlockChain = value; }
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool BlockChain
         {
@@ -175,6 +190,7 @@ namespace IoTDBdotNET
             set => Flags = value ? Flags.Enable(IotValueFlags.BlockChain) : Flags.Disable(IotValueFlags.BlockChain);
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsPasswordValue
         {
@@ -182,6 +198,7 @@ namespace IoTDBdotNET
             set { PasswordValue = value; }
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool PasswordValue
         {
@@ -189,12 +206,15 @@ namespace IoTDBdotNET
             set => Flags = value ? Flags.Enable(IotValueFlags.PasswordValue) : Flags.Disable(IotValueFlags.PasswordValue);
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsLogChange
         {
             get { return LogChange; }
             set { LogChange = value; }
         }
+
+        [JsonIgnore]
         [BsonIgnore]
         public bool LogChange
         {
@@ -204,6 +224,7 @@ namespace IoTDBdotNET
 
         #endregion
 
+        [JsonIgnore]
         [BsonIgnore]
         public string? Value
         {
@@ -219,6 +240,7 @@ namespace IoTDBdotNET
             
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public int Priority
         {
@@ -233,6 +255,7 @@ namespace IoTDBdotNET
             
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public DateTime Timestamp
         {
@@ -251,6 +274,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Check if value is Null
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsNull
         {
@@ -265,6 +289,7 @@ namespace IoTDBdotNET
             }
         }
 
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsStrictDataType
         {
@@ -283,60 +308,70 @@ namespace IoTDBdotNET
         /// <summary>
         /// Check if value is Guid type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsGuid => System.Guid.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Numeric type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsNumeric => double.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Double type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsDouble => double.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Boolean type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsBoolean => bool.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is DateTime type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsDateTime => DateTime.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Integer type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsInteger => int.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Long type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsLong => long.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Float type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsFloat => float.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Decimal type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsDecimal => decimal.TryParse(Value, out _);
 
         /// <summary>
         /// Check if value is Char type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsChar => char.TryParse(Value, out _);
 
@@ -365,6 +400,7 @@ namespace IoTDBdotNET
         /// Checks if the given string is a valid SHA-256 hash.
         /// </summary>
         /// <returns>True if the string is a valid SHA-256 hash; otherwise, false.</returns>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsHash
         {
@@ -386,6 +422,7 @@ namespace IoTDBdotNET
         /// </summary>
         /// <param name="hash">The string to check.</param>
         /// <returns>True if the string is a valid SHA-256 hash password; otherwise, false.</returns>
+        [JsonIgnore]
         [BsonIgnore]
         public bool IsPasswordHash
         {
@@ -652,6 +689,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get the highest prioriety. Zero means value is not set.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public int AsPriority
         {
@@ -664,6 +702,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as data type
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public System.Type? AsType
         {
@@ -695,6 +734,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as boolean. Return null if Value cannot parse as boolean.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public bool? AsBoolean
         {
@@ -711,6 +751,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as DateTime. Return null if Value cannot parse as DateTime.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public DateTime? AsDateTime
         {
@@ -726,6 +767,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as integer. Return null if Value cannot parse as integer.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public int? AsInteger
         {
@@ -742,6 +784,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as double. Return null if Value cannot parse as double.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public double? AsDouble
         {
@@ -758,6 +801,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as long. Return null if Value cannot parse as long.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public long? AsLong
         {
@@ -774,6 +818,7 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as Guid. Return null if Value cannot parse as Guid.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public Guid? AsGuid
         {
@@ -790,23 +835,27 @@ namespace IoTDBdotNET
         /// <summary>
         /// Get value as float. Return null if Value cannot parse as float.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public float? AsFloat => float.TryParse(Value, out float result) ? result : (float?)null;
 
         /// <summary>
         /// Get value as decimal. Return null if Value cannot parse as decimal.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public decimal? AsDecimal => decimal.TryParse(Value, out decimal result) ? result : (decimal?)null;
 
         /// <summary>
         /// Get value as dhar. Return null if Value cannot parse as char.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public char? AsChar => char.TryParse(Value, out char result) ? result : (char?)null;
         /// <summary>
         /// Get value as string. Return null if Value cannot parse as string.
         /// </summary>
+        [JsonIgnore]
         [BsonIgnore]
         public string? AsString
         {
@@ -922,7 +971,7 @@ namespace IoTDBdotNET
         #endregion
 
         #region Engineering Units
-
+        
         public static class Units
         {
             public static class All
