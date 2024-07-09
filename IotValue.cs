@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace IoTDBdotNET
 {
+    [Serializable]
     public class IotValue
     {
 
@@ -68,6 +69,19 @@ namespace IoTDBdotNET
             }
         }
 
+        [JsonIgnore]
+        private static JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+        
+        public string SerializeToJson()
+        {
+            return JsonSerializer.Serialize(this, _serializerOptions);
+        }
+        
+        public abstract IotValue Copy();
+        
         #endregion
 
         private void InitValues()
