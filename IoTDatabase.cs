@@ -75,6 +75,27 @@ namespace IoTDBdotNET
         }
 
         #endregion
+
+        public List<string> Resources
+        {
+            get
+            {
+                List<string> resources = new List<string>();
+                foreach (var table in _tables)
+                {
+                    resources.Add($"table_{table.Key}");
+                }
+                foreach (var file in _files)
+                {
+                    resources.Add($"file_{file.Key}");
+                }
+                return resources;
+            }
+        }
+
+
+        #region Files
+
         public IFileCollection Files(string containerName)
         {
             string name = containerName;
@@ -86,10 +107,6 @@ namespace IoTDBdotNET
 
             return _files[name];
         }
-
-        #region Files
-
-
         #endregion
 
         #region Base Functions

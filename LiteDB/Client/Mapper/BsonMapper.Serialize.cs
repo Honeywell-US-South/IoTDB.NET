@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IoTDBdotNET.Attributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -188,8 +189,15 @@ namespace IoTDBdotNET
                 doc["_type"] = new BsonValue(_typeNameBinder.GetName(t));
             }
 
+            int i = 0;
             foreach (var member in entity.Members.Where(x => x.Getter != null))
             {
+                
+                if (++i  == 31)
+                {
+                    int j = 0;
+                }
+                
                 // get member value
                 var value = member.Getter(obj);
 
