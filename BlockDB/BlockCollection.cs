@@ -30,11 +30,11 @@ namespace IoTDBdotNET.BlockDB
         #region Base Abstract
         protected override void InitializeDatabase()
         {
-            
-                var col = Database.GetCollection<Block>(_collectionName);
-                // Ensure there is an index on the Timestamp field to make the query efficient
-                col.EnsureIndex(x => x.Timestamp);
-            
+
+            var col = Database.GetCollection<Block>(_collectionName);
+            // Ensure there is an index on the Timestamp field to make the query efficient
+            col.EnsureIndex(x => x.Timestamp);
+
         }
 
         protected override void PerformBackgroundWork(CancellationToken cancellationToken)
@@ -49,11 +49,7 @@ namespace IoTDBdotNET.BlockDB
         /// </summary>
         public long Count()
         {
-
-            
-                return Database.GetCollection<Block>(_collectionName).LongCount();
-           
-
+            return Database.GetCollection<Block>(_collectionName).LongCount();
         }
         #endregion
         #region I
@@ -70,9 +66,9 @@ namespace IoTDBdotNET.BlockDB
             }
             string previousHash = lastBlock?.Hash ?? "";
             Block newBlock = new Block(previousHash, data);
-           
-                return Database.GetCollection<Block>(_collectionName).Insert(newBlock);
-            
+
+            return Database.GetCollection<Block>(_collectionName).Insert(newBlock);
+
 
         }
         #endregion
@@ -80,33 +76,33 @@ namespace IoTDBdotNET.BlockDB
         #region G
         public Block? Get()
         {
-           
-                var col = Database.GetCollection<Block>(_collectionName);
-                // Fetching the last document based on the Timestamp field
-                var lastEntry = col.Find(Query.All(Query.Descending), limit: 1).FirstOrDefault();
-                return lastEntry;
-            
+
+            var col = Database.GetCollection<Block>(_collectionName);
+            // Fetching the last document based on the Timestamp field
+            var lastEntry = col.Find(Query.All(Query.Descending), limit: 1).FirstOrDefault();
+            return lastEntry;
+
         }
 
         public List<Block>? Get(int count)
         {
-           
-                var col = Database.GetCollection<Block>(_collectionName);
-                // Fetching the last document based on the Timestamp field
-                var lastEntry = col.Find(Query.All(Query.Descending), limit: count).ToList();
-                return lastEntry;
-            
+
+            var col = Database.GetCollection<Block>(_collectionName);
+            // Fetching the last document based on the Timestamp field
+            var lastEntry = col.Find(Query.All(Query.Descending), limit: count).ToList();
+            return lastEntry;
+
         }
 
         public List<Block>? Get(DateTime startDate, DateTime endDate)
         {
             if (startDate.Kind != DateTimeKind.Utc) startDate = startDate.ToUniversalTime();
             if (endDate.Kind != DateTimeKind.Utc) endDate = endDate.ToUniversalTime();
-           
-                var col = Database.GetCollection<Block>(_collectionName);
-                var list = col.Find(Query.Between("Timestamp", startDate, endDate)).ToList();
-                return list;
-            
+
+            var col = Database.GetCollection<Block>(_collectionName);
+            var list = col.Find(Query.Between("Timestamp", startDate, endDate)).ToList();
+            return list;
+
 
         }
 

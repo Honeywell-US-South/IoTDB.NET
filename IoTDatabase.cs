@@ -1,5 +1,6 @@
 ﻿using IoTDBdotNET.FileDB;
 using IoTDBdotNET.TableDB;
+using IoTDBdotNET.TimeSeriesDB;
 using System.Collections.Concurrent;
 
 namespace IoTDBdotNET
@@ -13,19 +14,7 @@ namespace IoTDBdotNET
         private string _tsPath;
         private string _tbPath;
         private string _flPath;
-        private ITimeSeriesDatabase? _tsDb;
-        public ITimeSeriesDatabase TimeSeries
-        {
-            get
-            {
-                if (_tsDb == null)
-                {
-                    _tsDb = new TimeSeriesDatabase(_tsPath, _password);
-                    _tsDb.ExceptionOccurred += OnExceptionOccurred;
-                }
-                return _tsDb;
-            }
-        }
+        
 
         private ConcurrentDictionary<string, dynamic> _tables = new();
         internal ConcurrentDictionary<string, TableInfo> _tableInfos = new();
@@ -37,15 +26,14 @@ namespace IoTDBdotNET
         public IoTDatabase(string dbName, string dbPath, string? password)
         {
             _password = password ?? "";
-          
+           
             // Directory checks and creation
             InitializeDirectories(dbName, dbPath);
             if (!Directory.Exists(_dbPath)) throw new DirectoryNotFoundException($"Unable to create database directory. {_dbPath}");
             if (!Directory.Exists(_tsPath)) throw new DirectoryNotFoundException($"Unable to create timeseries directory. {_tsPath}");
             if (!Directory.Exists(_tbPath)) throw new DirectoryNotFoundException($"Unable to create tables directory. {_tbPath}");
             if (!Directory.Exists(_flPath)) throw new DirectoryNotFoundException($"Unable to create files directory. {_flPath}");
-            //TimeSeries = new TimeSeriesDatabase(_tsPath, _password);
-            //TimeSeries.ExceptionOccurred += OnExceptionOccurred;
+           
 
         }
 
@@ -87,6 +75,27 @@ namespace IoTDBdotNET
         }
 
         #endregion
+
+        public List<string> Resources
+        {
+            get
+            {
+                List<string> resources = new List<string>();
+                foreach (var table in _tables)
+                {
+                    resources.Add($"table_{table.Key}");
+                }
+                foreach (var file in _files)
+                {
+                    resources.Add($"file_{file.Key}");
+                }
+                return resources;
+            }
+        }
+
+
+        #region Files
+
         public IFileCollection Files(string containerName)
         {
             string name = containerName;
@@ -98,10 +107,6 @@ namespace IoTDBdotNET
 
             return _files[name];
         }
-
-        #region Files
-
-
         #endregion
 
         #region Base Functions

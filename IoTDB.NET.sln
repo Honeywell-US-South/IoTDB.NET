@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTDB.NET", "IoTDB.NET.csproj", "{7524B809-0804-4CB8-B355-A0AAF5A6C0DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoTDBdotNet Project", "IoTDBdotNet Project", "{FAB925CA-CD22-4074-B2DA-FD7A6AA5FE88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IotDbCosoleApp", "..\IotDbCosoleApp\IotDbCosoleApp.csproj", "{79A8ECCD-F242-40BD-9A62-CF5ACEF96251}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,17 @@ Global
 		{7524B809-0804-4CB8-B355-A0AAF5A6C0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7524B809-0804-4CB8-B355-A0AAF5A6C0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7524B809-0804-4CB8-B355-A0AAF5A6C0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A8ECCD-F242-40BD-9A62-CF5ACEF96251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A8ECCD-F242-40BD-9A62-CF5ACEF96251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A8ECCD-F242-40BD-9A62-CF5ACEF96251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A8ECCD-F242-40BD-9A62-CF5ACEF96251}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7524B809-0804-4CB8-B355-A0AAF5A6C0DC} = {FAB925CA-CD22-4074-B2DA-FD7A6AA5FE88}
+		{79A8ECCD-F242-40BD-9A62-CF5ACEF96251} = {FAB925CA-CD22-4074-B2DA-FD7A6AA5FE88}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {108956FA-EB37-49CD-9306-2EA546552938}
