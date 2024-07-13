@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json;
 using static IoTDBdotNET.Constants;
 
 namespace IoTDBdotNET
@@ -119,6 +121,7 @@ namespace IoTDBdotNET
             this.RawValue = rawValue;
         }
 
+        
         public BsonValue(object value)
         {
             this.RawValue = value;
@@ -179,11 +182,21 @@ namespace IoTDBdotNET
                 }
                 else
                 {
-                    throw new InvalidCastException("Value is not a valid BSON data type - Use Mapper.ToDocument for more complex types converts");
+                    var json = JsonSerializer.SerializeObject(value);
+                    if (json != null)
+                    {
+                        this.Type = BsonType.String;
+                        this.RawValue = json;
+                    }
+                    else
+                    {
+                        throw new InvalidCastException("Value is not a valid BSON data type - Use Mapper.ToDocument for more complex types converts");
+                    }
                 }
             }
         }
 
+        
         #endregion
 
         #region Index "this" property
@@ -224,6 +237,44 @@ namespace IoTDBdotNET
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public string AsString => this?.RawValue?.ToString()??string.Empty;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public JsonDocument? AsJson
+        {
+            get
+            {
+                var jsonString = RawValue.ToString();
+                if (string.IsNullOrWhiteSpace(jsonString))
+                {
+                    return null;
+                }
+
+                try
+                {
+                    var json = JsonDocument.Parse(jsonString);
+                    return json;
+                }
+                catch (JsonException)
+                {
+                    return null;
+                }
+                catch (ArgumentNullException)
+                {
+                    return null;
+                }
+            }
+        }
+
+       
+        public T? AsDeserialziedJson<T> () {
+
+            if (!IsJson) return default(T?);
+
+            var d = JsonSerializer.DeserializeObject<T>(AsString);
+
+            return d;
+            
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public int AsInt32 => Convert.ToInt32(this.RawValue);
@@ -281,7 +332,34 @@ namespace IoTDBdotNET
         public bool IsBoolean => this.Type == BsonType.Boolean;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public bool IsString => this.Type == BsonType.String;
+        public bool IsString => this.Type == BsonType.String || this.Type == BsonType.Json;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public bool IsJson
+        {
+            get
+            {
+                var jsonString = RawValue.ToString();
+                if (string.IsNullOrWhiteSpace(jsonString))
+                {
+                    return false;
+                }
+
+                try
+                {
+                    JsonDocument.Parse(jsonString);
+                    return true;
+                }
+                catch (JsonException)
+                {
+                    return false;
+                }
+                catch (ArgumentNullException)
+                {
+                    return false;
+                }
+            }
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public bool IsObjectId => this.Type == BsonType.ObjectId;
