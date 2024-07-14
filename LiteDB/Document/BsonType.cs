@@ -26,8 +26,6 @@
         Boolean = 12,
         DateTime = 13,
 
-        MaxValue = 14,
-
-        Json = 15
+        MaxValue = 14
     }
 }

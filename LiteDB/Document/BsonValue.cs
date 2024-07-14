@@ -1,4 +1,5 @@
 ﻿using IoTDBdotNET.Engine;
+using IoTDBdotNET.LiteDB.Document;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -182,16 +183,14 @@ namespace IoTDBdotNET
                 }
                 else
                 {
-                    var json = JsonSerializer.SerializeObject(value);
-                    if (json != null)
+                    try
                     {
+                        BsonT bsonT = new(value);
                         this.Type = BsonType.String;
-                        this.RawValue = json;
-                    }
-                    else
-                    {
-                        throw new InvalidCastException("Value is not a valid BSON data type - Use Mapper.ToDocument for more complex types converts");
-                    }
+                        this.RawValue = bsonT.ToJson();
+                    } catch {throw new InvalidCastException("Value is not a valid BSON data type - Use Mapper.ToDocument for more complex types converts"); }
+                   
+                    
                 }
             }
         }
@@ -265,14 +264,26 @@ namespace IoTDBdotNET
             }
         }
 
-       
-        public T? AsDeserialziedJson<T> () {
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public BsonT? AsBsonT => BsonT.ToBsonT(RawValue.ToString());
 
-            if (!IsJson) return default(T?);
+        public T? AsBsonTObject<T>()
+        {
+            try
+            {
+                var bsonT = AsBsonT;
+                if (bsonT == null)
+                {
+                    //object is not stored as BsonT; attempt to deserialized it anyway
+                    var t = JsonSerializer.DeserializeObject<T>(RawValue.ToString()??string.Empty);
+                    if (t != null) return t;
+                    return default(T?);
+                }
+                return bsonT.ToObjectT<T>();
+            }
+            catch { }
 
-            var d = JsonSerializer.DeserializeObject<T>(AsString);
-
-            return d;
+            return default(T?);
             
         }
 
@@ -329,10 +340,25 @@ namespace IoTDBdotNET
         public bool IsBinary => this.Type == BsonType.Binary;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public bool IsBsonT
+        {
+            get
+            {
+                try
+                {
+                    BsonT? bsonT = BsonT.ToBsonT(RawValue.ToString()??string.Empty);
+                    return bsonT != null;
+
+                }
+                catch { }
+                return false;
+            }
+        }
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public bool IsBoolean => this.Type == BsonType.Boolean;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public bool IsString => this.Type == BsonType.String || this.Type == BsonType.Json;
+        public bool IsString => this.Type == BsonType.String;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public bool IsJson
