@@ -5,13 +5,13 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 
 #if DEBUG
-[assembly: InternalsVisibleTo("LiteDB.Tests")]
+[assembly: InternalsVisibleTo("IoTDBdotNET.Tests")]
 #endif
 
 namespace IoTDBdotNET
 {
     /// <summary>
-    /// Class with all constants used in LiteDB + Debbuger HELPER
+    /// Class with all constants used in IoTDBdotNET + Debbuger HELPER
     /// </summary>
     internal class Constants
     {
@@ -130,7 +130,7 @@ namespace IoTDBdotNET
                     Debug.Fail(message);
                 }
                 
-                throw new Exception("LiteDB ENSURE: " + message);
+                throw new Exception("IoTDBdotNET ENSURE: " + message);
             }
         }
 
@@ -147,7 +147,7 @@ namespace IoTDBdotNET
                     Debug.Fail(message);
                 }
                 
-                throw new Exception("LiteDB ENSURE: " + message);
+                throw new Exception("IoTDBdotNET ENSURE: " + message);
             }
         }
 
@@ -165,7 +165,7 @@ namespace IoTDBdotNET
                     Debug.Fail(message);
                 }
                 
-                throw new Exception("LiteDB DEBUG: " + message);
+                throw new Exception("IoTDBdotNET DEBUG: " + message);
             }
         }
     }

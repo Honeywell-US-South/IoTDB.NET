@@ -64,7 +64,7 @@ namespace IoTDBdotNET.Engine
             if (position > _maxMemoryUsage && this.InMemory)
             {
                 // create new filename if not passed on ctor (must be unique
-                _filename = _filename ?? Path.Combine(Path.GetTempPath(), "litedb_" + Guid.NewGuid() + ".db");
+                _filename = _filename ?? Path.Combine(Path.GetTempPath(), "IoTDBdotNET_" + Guid.NewGuid() + ".db");
 
                 var file = new FileStream(_filename, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.None, PAGE_SIZE, FileOptions.RandomAccess);
 

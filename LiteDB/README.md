@@ -1,10 +1,10 @@
-# LiteDB - A .NET NoSQL Document Store in a single data file
+# IoTDBdotNET - A .NET NoSQL Document Store in a single data file
 
-[![Join the chat at https://gitter.im/mbdavid/LiteDB](https://badges.gitter.im/mbdavid/LiteDB.svg)](https://gitter.im/mbdavid/LiteDB?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build status](https://ci.appveyor.com/api/projects/status/sfe8he0vik18m033?svg=true)](https://ci.appveyor.com/project/mbdavid/litedb) [![Build Status](https://travis-ci.org/mbdavid/LiteDB.svg?branch=master)](https://travis-ci.org/mbdavid/LiteDB)
+[![Join the chat at https://gitter.im/mbdavid/IoTDBdotNET](https://badges.gitter.im/mbdavid/IoTDBdotNET.svg)](https://gitter.im/mbdavid/IoTDBdotNET?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build status](https://ci.appveyor.com/api/projects/status/sfe8he0vik18m033?svg=true)](https://ci.appveyor.com/project/mbdavid/IoTDBdotNET) [![Build Status](https://travis-ci.org/mbdavid/IoTDBdotNET.svg?branch=master)](https://travis-ci.org/mbdavid/IoTDBdotNET)
 
 ---
 
-LiteDB is a small, fast and lightweight .NET NoSQL embedded database. 
+IoTDBdotNET is a small, fast and lightweight .NET NoSQL embedded database. 
 
 - Serverless NoSQL Document Store
 - Simple API, similar to MongoDB
@@ -19,9 +19,9 @@ LiteDB is a small, fast and lightweight .NET NoSQL embedded database.
 - Index document fields for fast search
 - LINQ support for queries
 - SQL-Like commands to access/transform data
-- [LiteDB Studio](https://github.com/mbdavid/LiteDB.Studio) - Nice UI for data access 
+- [IoTDBdotNET Studio](https://github.com/mbdavid/IoTDBdotNET.Studio) - Nice UI for data access 
 - Open source and free for everyone - including commercial use
-- Install from NuGet: `Install-Package LiteDB`
+- Install from NuGet: `Install-Package IoTDBdotNET`
 
 
 ## New v5
@@ -39,17 +39,17 @@ LiteDB is a small, fast and lightweight .NET NoSQL embedded database.
 
 New UI to manage and visualize your database:
 
-![LiteDB.Studio](https://camo.githubusercontent.com/61465032cd9df0ccb7c0ff4a2d4f1cf772cdaa14/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f454f58564b7674583041412d6c64793f666f726d61743d6a7067266e616d653d6d656469756d)
+![IoTDBdotNET.Studio](https://camo.githubusercontent.com/61465032cd9df0ccb7c0ff4a2d4f1cf772cdaa14/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f454f58564b7674583041412d6c64793f666f726d61743d6a7067266e616d653d6d656469756d)
 
 ## Documentation
 
-Visit [the Wiki](https://github.com/mbdavid/LiteDB/wiki) for full documentation. For simplified chinese version, [check here](https://github.com/lidanger/LiteDB.wiki_Translation_zh-cn).
+Visit [the Wiki](https://github.com/mbdavid/IoTDBdotNET/wiki) for full documentation. For simplified chinese version, [check here](https://github.com/lidanger/IoTDBdotNET.wiki_Translation_zh-cn).
 
-## LiteDB Community
+## IoTDBdotNET Community
 
-Help LiteDB grow its user community by answering this [simple survey](https://docs.google.com/forms/d/e/1FAIpQLSc4cNG7wyLKXXcOLIt7Ea4TlXCG6s-51_EfHPu2p5WZ2dIx7A/viewform?usp=sf_link)
+Help IoTDBdotNET grow its user community by answering this [simple survey](https://docs.google.com/forms/d/e/1FAIpQLSc4cNG7wyLKXXcOLIt7Ea4TlXCG6s-51_EfHPu2p5WZ2dIx7A/viewform?usp=sf_link)
 
-## How to use LiteDB
+## How to use IoTDBdotNET
 
 A quick example for storing and searching documents:
 
@@ -146,22 +146,22 @@ using(var db = new LiteDatabase("MyOrderDatafile.db"))
 
 ## Plugins
 
-- A GUI viewer tool: https://github.com/falahati/LiteDBViewer (v4)
-- A GUI editor tool: https://github.com/JosefNemec/LiteDbExplorer (v4)
-- Lucene.NET directory: https://github.com/sheryever/LiteDBDirectory
-- LINQPad support: https://github.com/adospace/litedbpad
-- F# Support: https://github.com/Zaid-Ajaj/LiteDB.FSharp (v4)
-- UltraLiteDB (for Unity or IOT): https://github.com/rejemy/UltraLiteDB
+- A GUI viewer tool: https://github.com/falahati/IoTDBdotNETViewer (v4)
+- A GUI editor tool: https://github.com/JosefNemec/IoTDBdotNETExplorer (v4)
+- Lucene.NET directory: https://github.com/sheryever/IoTDBdotNETDirectory
+- LINQPad support: https://github.com/adospace/IoTDBdotNETpad
+- F# Support: https://github.com/Zaid-Ajaj/IoTDBdotNET.FSharp (v4)
+- UltraIoTDBdotNET (for Unity or IOT): https://github.com/rejemy/UltraIoTDBdotNET
 - OneBella - cross platform (windows, macos, linux) GUI tool : https://github.com/namigop/OneBella
 
 
 ## Changelog
 
-Change details for each release are documented in the [release notes](https://github.com/mbdavid/LiteDB/releases).
+Change details for each release are documented in the [release notes](https://github.com/mbdavid/IoTDBdotNET/releases).
 
 ## Code Signing
 
-LiteDB is digitally signed courtesy of [SignPath](https://www.signpath.io)
+IoTDBdotNET is digitally signed courtesy of [SignPath](https://www.signpath.io)
 
 <a href="https://www.signpath.io">
     <img src="https://about.signpath.io/assets/logo_signpath_500.png" width="150">

@@ -10,7 +10,7 @@ namespace IoTDBdotNET.Engine
     public partial class LiteEngine
     {
         /// <summary>
-        /// Upgrade old version of LiteDB into new LiteDB file structure. Returns true if database was completed converted
+        /// Upgrade old version of IoTDBdotNET into new IoTDBdotNET file structure. Returns true if database was completed converted
         /// If database already in current version just return false
         /// </summary>
         public static bool Upgrade(string filename, string password = null, Collation collation = null)

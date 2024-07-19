@@ -10,7 +10,7 @@ using static IoTDBdotNET.Constants;
 namespace IoTDBdotNET.Engine
 {
     /// <summary>
-    /// Internal class to read old LiteDB v4 database version (datafile v7 structure)
+    /// Internal class to read old IoTDBdotNET v4 database version (datafile v7 structure)
     /// </summary>
     internal class FileReaderV7 : IFileReader
     {

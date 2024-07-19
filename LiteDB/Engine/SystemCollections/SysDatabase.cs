@@ -30,7 +30,7 @@ namespace IoTDBdotNET.Engine
 
                 ["currentReadVersion"] = _walIndex.CurrentReadVersion,
                 ["lastTransactionID"] = _walIndex.LastTransactionID,
-                ["engine"] = $"litedb-ce-v{version.Major}.{version.Minor}.{version.Build}",
+                ["engine"] = $"IoTDBdotNET-ce-v{version.Major}.{version.Minor}.{version.Build}",
 
                 ["pragmas"] = new BsonDocument(_header.Pragmas.Pragmas.ToDictionary(x => x.Name, x => x.Get())),
 

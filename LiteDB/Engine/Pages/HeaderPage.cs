@@ -16,9 +16,9 @@ namespace IoTDBdotNET.Engine
     internal class HeaderPage : BasePage
     {
         /// <summary>
-        /// Header info the validate that datafile is a LiteDB file (27 bytes)
+        /// Header info the validate that datafile is a IoTDBdotNET file (27 bytes)
         /// </summary>
-        public const string HEADER_INFO = "** This is a LiteDB file **";
+        public const string HEADER_INFO = "** This is a IoTDBdotNET file **";
 
         /// <summary>
         /// Datafile specification version

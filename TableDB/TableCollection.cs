@@ -595,7 +595,7 @@ namespace IoTDBdotNET
         #region F
         /// <summary>
         /// Performs a search within a collection for documents where the specified column matches a given value, according to a specified comparison type.
-        /// The method can handle different types of string comparisons, such as Equals, StartsWith, EndsWith, and Contains. If the column name provided is "Id", it is internally treated as "_id" to match LiteDB's document ID field naming convention. For each document found, if it contains an "_id" field, this field is renamed to "Id". The comparison type defaults to Equals if not specified.
+        /// The method can handle different types of string comparisons, such as Equals, StartsWith, EndsWith, and Contains. If the column name provided is "Id", it is internally treated as "_id" to match IoTDBdotNET's document ID field naming convention. For each document found, if it contains an "_id" field, this field is renamed to "Id". The comparison type defaults to Equals if not specified.
         /// </summary>
         /// <param name="columnName">The name of the column to search in. Automatically handles "Id" as "_id".</param>
         /// <param name="value">The value to search for in the specified column.</param>

@@ -85,7 +85,7 @@ namespace IoTDBdotNET.TimeSeriesDB
                             collection.Update(tsItem);
                         }
 
-                        //Database.Commit(); do not need to do LiteDB auto commit
+                        //Database.Commit(); do not need to do IoTDBdotNET auto commit
                     }
 
 

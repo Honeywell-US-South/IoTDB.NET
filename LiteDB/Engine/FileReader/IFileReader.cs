@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace IoTDBdotNET.Engine
 {
     /// <summary>
-    /// Interface to read current or old datafile structure - Used to shirnk/upgrade datafile from old LiteDB versions
+    /// Interface to read current or old datafile structure - Used to shirnk/upgrade datafile from old IoTDBdotNET versions
     /// </summary>
     interface IFileReader
     {

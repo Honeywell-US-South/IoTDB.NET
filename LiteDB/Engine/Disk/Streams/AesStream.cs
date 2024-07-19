@@ -108,7 +108,7 @@ namespace IoTDBdotNET.Engine
 
                 if (!isNew)
                 {
-                    // check whether bytes 32 to 64 is empty. This indicates LiteDb was unable to write encrypted 1s during last attempt.
+                    // check whether bytes 32 to 64 is empty. This indicates IoTDBdotNET was unable to write encrypted 1s during last attempt.
                     _stream.Read(checkBuffer, 0, checkBuffer.Length);
                     isNew = checkBuffer.All(x => x == 0);
                     

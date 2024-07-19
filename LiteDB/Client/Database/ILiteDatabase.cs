@@ -58,7 +58,7 @@ namespace IoTDBdotNET
         bool Rollback();
 
         /// <summary>
-        /// Get new instance of Storage using custom FileId type, custom "_files" collection name and custom "_chunks" collection. LiteDB support multiples file storages (using different files/chunks collection names)
+        /// Get new instance of Storage using custom FileId type, custom "_files" collection name and custom "_chunks" collection. IoTDBdotNET support multiples file storages (using different files/chunks collection names)
         /// </summary>
         ILiteStorage<TFileId> GetStorage<TFileId>(string filesCollection = "_files", string chunksCollection = "_chunks");
 

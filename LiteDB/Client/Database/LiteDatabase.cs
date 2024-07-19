@@ -10,7 +10,7 @@ using static IoTDBdotNET.Constants;
 namespace IoTDBdotNET
 {
     /// <summary>
-    /// The LiteDB database. Used for create a LiteDB instance and use all storage resources. It's the database connection
+    /// The IoTDBdotNET database. Used for create a IoTDBdotNET instance and use all storage resources. It's the database connection
     /// </summary>
     internal partial class LiteDatabase : ILiteDatabase
     {
@@ -30,7 +30,7 @@ namespace IoTDBdotNET
         #region Ctor
 
         /// <summary>
-        /// Starts LiteDB database using a connection string for file system database
+        /// Starts IoTDBdotNET database using a connection string for file system database
         /// </summary>
         public LiteDatabase(string connectionString, BsonMapper mapper = null)
             : this(new ConnectionString(connectionString), mapper)
@@ -38,7 +38,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Starts LiteDB database using a connection string for file system database
+        /// Starts IoTDBdotNET database using a connection string for file system database
         /// </summary>
         public LiteDatabase(ConnectionString connectionString, BsonMapper mapper = null)
         {
@@ -56,7 +56,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Starts LiteDB database using a generic Stream implementation (mostly MemoryStream).
+        /// Starts IoTDBdotNET database using a generic Stream implementation (mostly MemoryStream).
         /// </summary>
         /// <param name="stream">DataStream reference </param>
         /// <param name="mapper">BsonMapper mapper reference</param>
@@ -75,7 +75,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Start LiteDB database using a pre-exiting engine. When LiteDatabase instance dispose engine instance will be disposed too
+        /// Start IoTDBdotNET database using a pre-exiting engine. When LiteDatabase instance dispose engine instance will be disposed too
         /// </summary>
         public LiteDatabase(ILiteEngine engine, BsonMapper mapper = null, bool disposeOnClose = true)
         {
@@ -161,7 +161,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Get new instance of Storage using custom FileId type, custom "_files" collection name and custom "_chunks" collection. LiteDB support multiples file storages (using different files/chunks collection names)
+        /// Get new instance of Storage using custom FileId type, custom "_files" collection name and custom "_chunks" collection. IoTDBdotNET support multiples file storages (using different files/chunks collection names)
         /// </summary>
         public ILiteStorage<TFileId> GetStorage<TFileId>(string filesCollection = "_files", string chunksCollection = "_chunks")
         {

@@ -8,7 +8,7 @@ using static IoTDBdotNET.Constants;
 namespace IoTDBdotNET
 {
     /// <summary>
-    /// The LiteDB repository pattern. A simple way to access your documents in a single class with fluent query api
+    /// The IoTDBdotNET repository pattern. A simple way to access your documents in a single class with fluent query api
     /// </summary>
     public class LiteRepository : ILiteRepository
     {
@@ -26,7 +26,7 @@ namespace IoTDBdotNET
         #region Ctor
 
         /// <summary>
-        /// Starts LiteDB database an existing Database instance
+        /// Starts IoTDBdotNET database an existing Database instance
         /// </summary>
         public LiteRepository(ILiteDatabase database)
         {
@@ -34,7 +34,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Starts LiteDB database using a connection string for file system database
+        /// Starts IoTDBdotNET database using a connection string for file system database
         /// </summary>
         public LiteRepository(string connectionString, BsonMapper mapper = null)
         {
@@ -42,7 +42,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Starts LiteDB database using a connection string for file system database
+        /// Starts IoTDBdotNET database using a connection string for file system database
         /// </summary>
         public LiteRepository(ConnectionString connectionString, BsonMapper mapper = null)
         {
@@ -50,7 +50,7 @@ namespace IoTDBdotNET
         }
 
         /// <summary>
-        /// Starts LiteDB database using a Stream disk
+        /// Starts IoTDBdotNET database using a Stream disk
         /// </summary>
         public LiteRepository(Stream stream, BsonMapper mapper = null, Stream logStream = null)
         {

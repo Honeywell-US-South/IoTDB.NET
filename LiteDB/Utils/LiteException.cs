@@ -8,7 +8,7 @@ using static IoTDBdotNET.Constants;
 namespace IoTDBdotNET
 {
     /// <summary>
-    /// The main exception for LiteDB
+    /// The main exception for IoTDBdotNET
     /// </summary>
     public class LiteException : Exception
     {
@@ -97,7 +97,7 @@ namespace IoTDBdotNET
 
         internal static LiteException InvalidDatabase()
         {
-            return new LiteException(INVALID_DATABASE, "File is not a valid LiteDB database format or contains a invalid password.");
+            return new LiteException(INVALID_DATABASE, "File is not a valid IoTDBdotNET database format or contains a invalid password.");
         }
 
         internal static LiteException FileSizeExceeded(long limit)
@@ -327,7 +327,7 @@ namespace IoTDBdotNET
 
         internal static LiteException AvoidUseOfProcess()
         {
-            return new LiteException(AVOID_USE_OF_PROCESS, $"LiteDB do not accept System.Diagnostics.Process class in deserialize mapper");
+            return new LiteException(AVOID_USE_OF_PROCESS, $"IoTDBdotNET do not accept System.Diagnostics.Process class in deserialize mapper");
         }
 
         #endregion

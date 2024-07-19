@@ -15,7 +15,7 @@ namespace IoTDBdotNET
     internal enum BsonExpressionParserMode { Full, Single, SelectDocument, UpdateDocument }
 
     /// <summary>
-    /// Compile and execute simple expressions using BsonDocuments. Used in indexes and updates operations. See https://github.com/mbdavid/LiteDB/wiki/Expressions
+    /// Compile and execute simple expressions using BsonDocuments. Used in indexes and updates operations. See https://github.com/mbdavid/IoTDBdotNET/wiki/Expressions
     /// </summary>
     internal class BsonExpressionParser
     {
