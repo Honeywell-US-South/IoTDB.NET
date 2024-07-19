@@ -962,6 +962,7 @@ namespace IoTDBdotNET
                 Guid guidValue => guidValue.ToString(),
                 char charValue => charValue.ToString(),
                 byte[] byteArrayValue => Convert.ToBase64String(byteArrayValue),
+                _ when value?.GetType().FullName?.Equals("system.string", StringComparison.OrdinalIgnoreCase)==true => value?.ToString()??string.Empty,
                 _ when value?.GetType().IsClass == true => System.Text.Json.JsonSerializer.Serialize(value),
                 _ => value?.ToString() ?? string.Empty,
             };

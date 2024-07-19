@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 using static IoTDBdotNET.Constants;
 
 namespace IoTDBdotNET
@@ -46,6 +47,19 @@ namespace IoTDBdotNET
 
                 w.Serialize(value ?? BsonValue.Null);
             }
+        }
+
+        public static string SerializeObject<T>(T obj)
+        {
+            // JsonSerializerOptions can be customized for more control over serialization
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true, // Pretty-print JSON
+                IgnoreNullValues = true // Ignore null values
+            };
+
+            // Serialize the object to JSON string
+            return System.Text.Json.JsonSerializer.Serialize(obj, options);
         }
 
         #endregion
@@ -103,6 +117,17 @@ namespace IoTDBdotNET
             return jr.DeserializeArray();
         }
 
+        public static T? DeserializeObject<T>(string jsonString)
+        {
+            // JsonSerializerOptions can be customized for more control over deserialization
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true // Ignore case when matching property names
+            };
+
+            // Deserialize the JSON string to an object
+            return System.Text.Json.JsonSerializer.Deserialize<T>(jsonString, options);
+        }
         #endregion
     }
 }
