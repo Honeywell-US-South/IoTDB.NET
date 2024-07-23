@@ -2051,11 +2051,13 @@ namespace IoTDBdotNET
                 public static class Name
                 {
                     public const string meters_per_second_per_second = All.Name.meters_per_second_per_second; // 166 Acceleration
+                    public const string standard_gravity = All.Name.standard_gravity;
                 }
-
+            
                 public static class Symbol
                 {
                     public const string meters_per_second_per_second = "m/s²"; // 166 Acceleration
+                    public const string standard_gravity = "g";
                 }
             }
 
