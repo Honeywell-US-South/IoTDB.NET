@@ -983,7 +983,8 @@ namespace IoTDBdotNET
                 {
                     // Acceleration
                     public const string meters_per_second_per_second = "meters_per_second_per_second";
-
+                    public const string standard_gravity = "standard_gravity";
+                    
                     // Angular
                     public const string degrees_angular = "degrees_angular";
                     public const string radians = "radians";
