@@ -962,6 +962,7 @@ namespace IoTDBdotNET
                 Guid guidValue => guidValue.ToString(),
                 char charValue => charValue.ToString(),
                 byte[] byteArrayValue => Convert.ToBase64String(byteArrayValue),
+                Type typeValue => typeValue.Name, // Handle System.RuntimeType
                 _ when value?.GetType().FullName?.Equals("system.string", StringComparison.OrdinalIgnoreCase)==true => value?.ToString()??string.Empty,
                 _ when value?.GetType().IsClass == true => System.Text.Json.JsonSerializer.Serialize(value),
                 _ => value?.ToString() ?? string.Empty,
@@ -982,7 +983,8 @@ namespace IoTDBdotNET
                 {
                     // Acceleration
                     public const string meters_per_second_per_second = "meters_per_second_per_second";
-
+                    public const string standard_gravity = "standard_gravity";
+                    
                     // Angular
                     public const string degrees_angular = "degrees_angular";
                     public const string radians = "radians";
@@ -2050,11 +2052,13 @@ namespace IoTDBdotNET
                 public static class Name
                 {
                     public const string meters_per_second_per_second = All.Name.meters_per_second_per_second; // 166 Acceleration
+                    public const string standard_gravity = All.Name.standard_gravity;
                 }
-
+            
                 public static class Symbol
                 {
                     public const string meters_per_second_per_second = "m/s²"; // 166 Acceleration
+                    public const string standard_gravity = "g";
                 }
             }
 
